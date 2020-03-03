@@ -1,0 +1,33 @@
+body {
+    background-image: url(assets/topography.png);
+    padding: 10%;
+    margin: auto;
+    font-family: "consolas";
+}
+
+header {
+    background-color: #333333;
+    text-align: left;
+    padding: 3%;
+}
+
+nav {
+    float: right;
+    height: 70px;
+    line-height: 60px;
+  }
+
+a {
+    color: hsl(78, 100%, 50%);
+    /* float: right; */
+}
+
+h3,h4{
+    color: #ff0099;
+
+}
+
+h4 {
+    font-weight: bold;
+}
+

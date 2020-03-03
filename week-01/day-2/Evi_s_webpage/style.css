@@ -1,0 +1,68 @@
+html {
+    font-size: 16px;
+  }
+  
+  body {
+    margin: 0;
+    background-color: #F8F1FF;
+    height: 100vh;
+    font-family: 'Roboto';
+    text-align: center;
+  }
+  
+  header {
+    background-color: #656176;
+    height: 50px;
+    text-align: left;
+    padding: 3%;
+  }
+  
+  header>img {
+    vertical-align: middle;
+    max-height: 90%;
+    line-height: 50px;
+  }
+  
+  nav {
+    float: right;
+    height: 70px;
+    line-height: 60px;
+  }
+  
+  nav>a {
+    margin: 0 10px;
+    text-transform: uppercase;
+    color: #F8F1FF;
+    border: 3px thistle dotted;
+    border-radius: 2em;
+    padding: 1em;
+    text-decoration: none;
+  }
+  
+  main {
+    padding: 5%;
+  }
+  
+  main img:last-of-type {
+    margin: 5% 0;
+    width: 100%;
+  }
+  
+  h1 {
+    font-size: 30px;
+    text-decoration: underline;
+  }
+  
+  h1, h2 {
+    color: #1B998B;
+    margin: 2% 0;
+  }
+  
+  p {
+    text-align: justify;
+  }
+  
+  span:last-of-type {
+    color: #656176;
+  }
+  © 2020 GitHub, Inc.
