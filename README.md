@@ -1,3 +1,3 @@
 # agipetho
 a slight change...
-[agipetho/github]https://github.com/agipetho/agipetho.github.io)
+[agipetho/github](https://github.com/agipetho/agipetho.github.io)
