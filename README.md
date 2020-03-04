@@ -1,3 +1,3 @@
 # agipetho
 a slight change...
-[I'm an inline-style link](https://www.google.com)
+[agipetho/github]https://github.com/agipetho/agipetho.github.io)
