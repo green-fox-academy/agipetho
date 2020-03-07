@@ -14,6 +14,7 @@ public class DrawPyramid {
                 System.out.print("*");
             }
             System.out.println();
+
         }
     }
 }
