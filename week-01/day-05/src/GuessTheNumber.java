@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class GuessTheNumber {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int myNumber= 26;
+        int myNumber= 1002;
         System.out.println("Guess the number!");
 
         for (int i = 1; i < 999999999; i++) {
