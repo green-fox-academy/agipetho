@@ -7,19 +7,7 @@ public class SubStr {
     String input = scanner.nextLine();
     System.out.println("Type the substring you would like to search for");
     String q = scanner.nextLine();
-    System.out.println(subStr(input, q));
-    }
-    public static int subStr(String input, String q) {
-        return input.indexOf(q);
+    System.out.println(input.indexOf(q));
     }
 }
-//
-//    public static int subStr(String input, String q) {
-//        if (input.contains(q)) {
-//            int indexOfStart = input.indexOf(q);
-//            return indexOfStart;
-//        }else {
-//            return -1;
-//        }
-//    }
-//    }
+
