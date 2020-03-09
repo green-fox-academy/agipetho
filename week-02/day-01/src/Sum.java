@@ -9,9 +9,9 @@ public class Sum {
      int nNumber = 2;
         System.out.println(sum(nNumber));
     }
-    public static int sum(int k){
+    public static int sum(int limit){
         int l = 0;
-        for (int i = 0; i <= k; i++) {
+        for (int i = 0; i <= limit; i++) {
            l += i;
         }
         return l;
