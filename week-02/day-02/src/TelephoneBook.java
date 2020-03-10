@@ -18,6 +18,13 @@ public class TelephoneBook {
                 System.out.println(item.getKey());
             }
         }
+//another solution:
+        for (String k : telephoneBook.keySet()) {
+            if (telephoneBook.get(k) == "307-687-2982"){
+                System.out.println(k);
+            }
+        }
+
         if (telephoneBook.containsKey("Chris E. Meyers")){
             System.out.println("Do we know Chris E. Meyers' phone number? YES!");
         }
