@@ -4,10 +4,10 @@ import java.util.Map;
 
 public class TelephoneBook {
     public static void main(String[] args) {
-        HashMap <String, String> telephoneBook= new HashMap<>();
-        telephoneBook.put("William A. Lathan","405-709-1865");
+        HashMap<String, String> telephoneBook = new HashMap<>();
+        telephoneBook.put("William A. Lathan", "405-709-1865");
         telephoneBook.put("John K. Miller", "402-247-8568");
-        telephoneBook.put("Hortensia E. Foster","606-481-6467");
+        telephoneBook.put("Hortensia E. Foster", "606-481-6467");
         telephoneBook.put("Amanda D. Newland", "319-243-5613");
         telephoneBook.put("Brooke P. Askew", "307-687-2982");
 
@@ -20,15 +20,14 @@ public class TelephoneBook {
         }
 //another solution:
         for (String k : telephoneBook.keySet()) {
-            if (telephoneBook.get(k) == "307-687-2982"){
+            if (telephoneBook.get(k) == "307-687-2982") {
                 System.out.println(k);
             }
         }
 
-        if (telephoneBook.containsKey("Chris E. Meyers")){
+        if (telephoneBook.containsKey("Chris E. Meyers")) {
             System.out.println("Do we know Chris E. Meyers' phone number? YES!");
-        }
-        else {
+        } else {
             System.out.println("Do we know Chris E. Meyers' phone number? NOOOOO!");
         }
     }
