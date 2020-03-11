@@ -16,8 +16,7 @@ public class CountLines {
         String filename = "files/my-file.txt";
 
         try {
-            Path filePath = Paths.get(filename);
-            List<String> lines = Files.readAllLines(filePath);
+            List<String> lines = Files.readAllLines(Paths.get("files/my-file.txt"));
             System.out.println(lines.size());
             int counter = 0;
             for(String line : lines){
@@ -25,7 +24,7 @@ public class CountLines {
             }
             System.out.println(counter);
 
-        } catch (InputMismatchException e) {
+        } catch (InputMismatchException | IOException e) {
             System.out.println("0");
         }
     }
