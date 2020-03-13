@@ -17,7 +17,7 @@ import java.util.Scanner;
 
 public class MUltipleLines {
     public static void main(String[] args) {
-        multipleLineGenerator("files/my-file.txt", "korte", 8);
+        multipleLineGenerator("files/my-files.txt", "korte", 8);
     }
 
     public static void multipleLineGenerator(String path, String word, int number) {
@@ -30,7 +30,7 @@ public class MUltipleLines {
             }
             Files.write(filePath, lines);
         } catch (IOException e){
-            System.out.println("could not read file");
+            System.out.println( e.getStackTrace());
         }
     }
 }

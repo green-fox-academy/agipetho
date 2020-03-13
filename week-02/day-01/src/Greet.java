@@ -12,7 +12,7 @@ public class Greet {
         String al = "Agi";
         greet(al);
     }
-    public static void greet(String a) {
-            System.out.println("Greetings dear, " + a);
+    public static void greet(String al) {
+            System.out.println("Greetings dear, " + al);
     }
 }
