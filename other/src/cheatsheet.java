@@ -1,6 +1,9 @@
 
 //my cheatsheet
 
+// equal: nem ==, hanem:
+        if (currentIGetPost.equals("GET")) {
+            numberOfGet += 1;
 
 //  I. File IO
 
