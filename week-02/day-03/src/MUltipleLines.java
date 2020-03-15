@@ -8,29 +8,27 @@
 // The function should not raise any errors if it could not write the file.
 
 import java.io.IOException;
-import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
-import java.util.Scanner;
 
 public class MUltipleLines {
-    public static void main(String[] args) {
-        multipleLineGenerator("files/my-files.txt", "korte", 8);
-    }
+  public static void main(String[] args) {
+    multipleLineGenerator("files/my-files.txt", "korte", 8);
+  }
 
-    public static void multipleLineGenerator(String path, String word, int number) {
-        try {
-            Path filePath = Paths.get(path);
-            List<String> lines = Files.readAllLines(filePath);
+  public static void multipleLineGenerator(String path, String word, int number) {
+    try {
+      Path filePath = Paths.get(path);
+      List<String> lines = Files.readAllLines(filePath);
 
-            for (int i = 0; i < number; i++) {
-                lines.add(word);
-            }
-            Files.write(filePath, lines);
-        } catch (IOException e){
-            System.out.println( e.getStackTrace());
-        }
+      for (int i = 0; i < number; i++) {
+        lines.add(word);
+      }
+      Files.write(filePath, lines);
+    } catch (IOException e) {
+      System.out.println(e.getStackTrace());
     }
+  }
 }

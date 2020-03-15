@@ -1,7 +1,7 @@
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.Files;
 import java.util.List;
 
 //public class WriteSingleLine {
@@ -15,13 +15,13 @@ import java.util.List;
 //    }
 //}
 public class WriteSingleLine {
-    public static void main(String[] args) throws IOException {
-        Path myFile = Paths.get("files/my-file.txt");
-        List<String> fileContent = Files.readAllLines(myFile);
-        fileContent.add("Agnes Petho");
-        for (String line : fileContent) {
-            System.out.println(line);
-        }
-//        Files.write("files/my-file.txt", "Agi");
+  public static void main(String[] args) throws IOException {
+    Path myFile = Paths.get("files/my-file.txt");
+    List<String> fileContent = Files.readAllLines(myFile);
+    fileContent.add("Agnes Petho");
+    for (String line : fileContent) {
+      System.out.println(line);
     }
+//        Files.write("files/my-file.txt", "Agi");
+  }
 }

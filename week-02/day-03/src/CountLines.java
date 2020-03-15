@@ -9,23 +9,26 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.InputMismatchException;
 import java.util.List;
-import java.util.Scanner;
 
 public class CountLines {
-    public static void main(String[] args) {
-        String filename = "files/my-file.txt";
+  public static void main(String[] args) {
+    String filename = "files/my-file.txt";
+    System.out.println(lineCounter(filename));
+  }
 
-        try {
-            List<String> lines = Files.readAllLines(Paths.get("files/my-file.txt"));
-            System.out.println(lines.size());
-            int counter = 0;
-            for(String line : lines){
-                counter++;
-            }
-            System.out.println(counter);
+  public static int lineCounter(String filename) {
+    Path filePath = Paths.get("files/my-file.txt");
+    try {
+      List<String> lines = Files.readAllLines(filePath);
 
-        } catch (InputMismatchException | IOException e) {
-            System.out.println("0");
-        }
+      //int counter = 0;
+      //for (String line : lines) {
+      //    counter++;
+      //}
+      //.out.println(counter);
+      return lines.size();
+    } catch (InputMismatchException | IOException e) {
+      return 0;
     }
+  }
 }
