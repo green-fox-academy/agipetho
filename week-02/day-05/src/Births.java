@@ -15,22 +15,21 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+
 
 public class Births {
   public static void main(String[] args) {
     try {
-      System.out.println(whenTheMostBirthhappened("files/births.csv"));
+      System.out.println(calculateYearWhenMostBirthHappened("files/births.csv"));
     } catch (IOException e) {
       System.out.println("IO error");
     }
   }
 
-  public static int whenTheMostBirthhappened(String filepath) throws java.io.IOException {
+  public static int calculateYearWhenMostBirthHappened(String filepath) throws java.io.IOException {
     Path filePath = Paths.get(filepath);
     List<String> linesOfTheFiles;
-    HashMap<Integer, Integer> whichIsTheMorePopularYear = new HashMap();
+    HashMap<Integer, Integer> yearsAndOcurrences = new HashMap();
 
     linesOfTheFiles = Files.readAllLines(filePath);
     for (String line : linesOfTheFiles) {
@@ -40,8 +39,8 @@ public class Births {
         String[] currentArrayWithBirthInfo = currentBirthInfo.split("-");
         String currentYearInfo = currentArrayWithBirthInfo[0];
         Integer intCurrentYearInfo = Integer.parseInt(currentYearInfo);
-        Integer counter = whichIsTheMorePopularYear.get(intCurrentYearInfo);
-        whichIsTheMorePopularYear.put(intCurrentYearInfo, ((counter == null) ? 1 : counter + 1));
+        Integer counter = yearsAndOcurrences.get(intCurrentYearInfo);
+        yearsAndOcurrences.put(intCurrentYearInfo, ((counter == null) ? 1 : counter + 1));
       } catch (NumberFormatException e) {
         System.out.println("Cannot be parsed: " + line);
         //continue with next iteration
@@ -51,7 +50,7 @@ public class Births {
       }
     }
     HashMap.Entry<Integer, Integer> maxEntry = null;
-    for (HashMap.Entry<Integer, Integer> entry : whichIsTheMorePopularYear.entrySet()) {
+    for (HashMap.Entry<Integer, Integer> entry : yearsAndOcurrences.entrySet()) {
       if (maxEntry == null || entry.getValue() > maxEntry.getValue()) {
         maxEntry = entry;
       }
