@@ -14,17 +14,19 @@ public class Sharpie {
   float width;
   float inkAmount;
 
-  public Sharpie (){
+  public Sharpie() {
 
   }
-  public Sharpie (String color, float width){
+
+  public Sharpie(String color, float width) {
     this.color = color;
     this.width = width;
     this.inkAmount = 100;
 
   }
 
-  public void use (){
+  public void use() {
     inkAmount -= 1;
   }
 }
+
