@@ -10,7 +10,7 @@ public class SumTest {
 
 
   Sum sum = new Sum();
-  @Test
+  -
   public void getSum_WithAnEmptyList() {
     ArrayList<Integer> input = new ArrayList(Arrays.asList());
     int result = sum.getSum(input);
