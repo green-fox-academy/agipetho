@@ -18,38 +18,31 @@ public class CowsAndBulls {
 
   boolean isTheGameEnded;
   int counterOfGuesses;
-  int numberOfCAB;
+
 
   public CowsAndBulls() {
     isTheGameEnded = false;
     counterOfGuesses = 0;
-    Random random = new Random();
-    numberOfCAB = 1000 + random.nextInt(8999); //not to have 3-digit random numbers, any other solution?
-    System.out.println(numberOfCAB); // this is just for me to check
   }
 
   public boolean isTheGameEnded() {
     return isTheGameEnded;
   }
 
-  public String guess(int guessedNumber) {
+  public String guess(int guessedNumber, int numberOfCAB) {
     String randomNumberString = Integer.toString(numberOfCAB);
-    char[] randomsNumberArray = randomNumberString.toCharArray();
     String guessesNumberString = Integer.toString(guessedNumber);
-    char[] guessesNumberArray = guessesNumberString.toCharArray();
+    String formattedguessesNumberString = String.format("%04d", guessedNumber); //formatted-et tovabbvinni
     int counterOfCows = 0;
     int counterOfBulls = 0;
-    for (int i = 0; i < guessesNumberArray.length; i++) {
+    for (int i = 0; i < formattedguessesNumberString.length(); i++) {
       //positional match
-      if (guessesNumberArray[i] == randomsNumberArray[i]) {
+      if (formattedguessesNumberString.charAt(i) == randomNumberString.charAt(i)) {
         counterOfCows += 1;
         //simple match - place is different
-      } else {
-        for (int j = 0; j < randomsNumberArray.length; j++) {
-          if (randomsNumberArray[j] == guessesNumberArray[i] && i != j) {
-            counterOfBulls += 1;
-          }
-        }
+      } else if (randomNumberString.contains(String.valueOf(formattedguessesNumberString.charAt(i)))
+          && formattedguessesNumberString.charAt(i) != randomNumberString.charAt(i)) {
+        counterOfBulls++;
       }
     }
     if (counterOfCows == 4) {
