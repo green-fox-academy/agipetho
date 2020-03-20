@@ -11,7 +11,7 @@ import java.security.Key;
 import java.util.HashMap;
 
 public class CountLetters {
-  public static HashMap<Character, Integer> createDictionary(String inputWord) {
+  public  HashMap<Character, Integer> createDictionary(String inputWord) {
     HashMap<Character, Integer> dictionaryHashMap = new HashMap();
     for (int i = 0; i < inputWord.length(); i++) {
       if (dictionaryHashMap.containsKey(inputWord.charAt(i))){
