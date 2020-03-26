@@ -7,40 +7,33 @@ eg. watering with 10 the tree's amount of water should only increase with 4
 
 package garden;
 
-public class Tree extends Garden {
-  private String color;
-  private double currentWater;
-  private boolean doesItNeedWater;
+public class Tree extends Plant {
 
-  public Tree (String color, double currentWater) {
-    this.color = color;
-    this.currentWater = currentWater;
+  protected boolean doesThisTreeNeedWater;
+
+  public Tree(String color, double currentWater) {
+    super.color = color;
+    super.currentWater = currentWater;
     if (currentWater < 10) {
-      doesItNeedWater = true;
+      this.doesThisTreeNeedWater = true;
     }
   }
 
-  public String getColor() {
-    return color;
-  }
-
-  public double getCurrentWater() {
+  @Override
+  public double waterPlant(double waterAmount) {
+    if (doesThisTreeNeedWater) {
+      currentWater = currentWater + (0.40 * waterAmount);
+    }
     return currentWater;
   }
 
-  public boolean isDoesItNeedWater() {
-    return doesItNeedWater;
+  @Override
+  public String whoAmI() {
+    return "Tree";
+
   }
 
-  public void setColor(String color) {
-    this.color = color;
-  }
-
-  public void setCurrentWater(double currentWater) {
-    this.currentWater = currentWater;
-  }
-
-  public void setDoesItNeedWater(boolean doesItNeedWater) {
-    this.doesItNeedWater = doesItNeedWater;
+  public boolean doesThisTreeNeedWaterNeedWater() {
+    return doesThisTreeNeedWater;
   }
 }

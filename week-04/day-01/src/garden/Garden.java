@@ -15,9 +15,58 @@ eg. watering with 40 and 4 of them need water then each gets watered with 10
  */
 package garden;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Garden {
   List<Plant> plants;
 
+  public Garden() {
+    plants = new ArrayList<>();
+
+    Plant flower1 = new Flower("yellow", 0);
+    Plant flower2 = new Flower("blue", 0);
+    Plant tree1 = new Tree("purple", 0);
+    Plant tree2 = new Tree("orange", 0);
+
+    plants.add(flower1);
+    plants.add(flower2);
+    plants.add(tree1);
+    plants.add(tree2);
+  }
+
+  public void showMyGarden() {
+    System.out.println("In my garden there are: ");
+    for (Plant plant : plants) {
+      System.out.println("a " + plant.color + " " + plant.whoAmI());
+    }
+    System.out.println("---------");
+    for (Plant plant : plants) {
+      System.out.println("The " + plant.color + " " + plant.whoAmI() + ((plant.doesThisPlantNeedWater()) ? "needs" : "does not need ") + " water \n");
+    }
+    for (Plant plant : plants) {
+      System.out.println(plant.currentWater);
+    }
+  }
+
+  public void waterMyGarden() {
+    int counterOfPlants = 0;
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("How much water do you want to use?");
+    int waterAmount = scanner.nextInt();
+
+    try {
+      for (Plant plant : plants) {
+        if (plant.doesThisPlantNeedWater()) {
+          counterOfPlants++;
+        }
+      }
+      for (Plant plant : plants) {
+        plant.waterPlant((waterAmount / counterOfPlants));
+      }
+    } catch (ArithmeticException e) {
+      System.out.println("Arithmetical execption, do not divide with zero!");
+    }
+  }
 }
