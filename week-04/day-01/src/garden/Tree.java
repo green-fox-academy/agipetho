@@ -8,32 +8,31 @@ eg. watering with 10 the tree's amount of water should only increase with 4
 package garden;
 
 public class Tree extends Plant {
-
-  protected boolean doesThisTreeNeedWater;
+  protected boolean doesThisPlantNeedWater;
 
   public Tree(String color, double currentWater) {
     super.color = color;
     super.currentWater = currentWater;
+  }
+
+  @Override
+  public boolean doesThisPlantNeedWater() {
     if (currentWater < 10) {
-      this.doesThisTreeNeedWater = true;
+      return true;
+    } else {
+      return false;
     }
   }
 
   @Override
-  public double waterPlant(double waterAmount) {
-    if (doesThisTreeNeedWater) {
-      currentWater = currentWater + (0.40 * waterAmount);
+  public void waterPlant(double waterPerPlant) {
+    if (currentWater < 10) {
+      currentWater = currentWater + (0.40 * waterPerPlant);
     }
-    return currentWater;
   }
 
   @Override
   public String whoAmI() {
     return "Tree";
-
-  }
-
-  public boolean doesThisTreeNeedWaterNeedWater() {
-    return doesThisTreeNeedWater;
   }
 }

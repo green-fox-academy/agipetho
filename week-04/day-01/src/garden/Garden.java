@@ -43,7 +43,7 @@ public class Garden {
     }
     System.out.println("---------");
     for (Plant plant : plants) {
-      System.out.println("The " + plant.color + " " + plant.whoAmI() + ((plant.doesThisPlantNeedWater()) ? "needs" : "does not need ") + " water \n");
+      System.out.println("The " + plant.color + " " + plant.whoAmI() + ((plant.doesThisPlantNeedWater()) ? " needs" : " does not need ") + " water");
     }
     for (Plant plant : plants) {
       System.out.println(plant.currentWater);

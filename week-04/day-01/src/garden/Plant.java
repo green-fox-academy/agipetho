@@ -1,25 +1,16 @@
 package garden;
 
-import org.w3c.dom.ls.LSOutput;
-
-import java.util.List;
-
-public class Plant {
-  public String color;
-  public double currentWater;
+public abstract class Plant {
+  protected String color;
+  protected double currentWater;
 
   public Plant() {
   }
 
-  public boolean doesThisPlantNeedWater() {
-    return true;
-  }
+  public abstract boolean doesThisPlantNeedWater();
 
-  public String whoAmI() {
-    return null;
-  }
+  public abstract String whoAmI();
 
-  public double waterPlant(double waterPerPlant) {
-    return 1;
+  public void waterPlant(double waterPerPlant) {
   }
 }
