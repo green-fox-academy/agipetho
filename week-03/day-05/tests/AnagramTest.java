@@ -13,6 +13,7 @@ public class AnagramTest {
     boolean result = anagram.anagram(string1, string2);
     assertEquals(true, result);
   }
+
   @org.junit.Test
   public void anagram_WithNegativeResult() {
     String string1 = "dog";
@@ -21,6 +22,12 @@ public class AnagramTest {
     assertEquals(false, result);
   }
 
+  @org.junit.Test
+  public void anagram_WithSpaces() {
+    String string1 = "sorba hálót fanyar";
+    String string2 = "afalra hányt borsó";
+    boolean result = anagram.anagram(string1, string2);
+    assertEquals(true, result);
 
-
+  }
 }

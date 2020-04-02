@@ -16,4 +16,9 @@ public class Fibonacci {
 return computeFibonacciNNumber(index-1) + computeFibonacciNNumber(index - 2);
     }
   }
+
+  public static void main(String[] args) {
+    Fibonacci fibonacci = new Fibonacci();
+    fibonacci.computeFibonacciNNumber(12);
+  }
 }

@@ -16,8 +16,8 @@ import java.util.Scanner;
 
 public class CowsAndBulls {
 
-  boolean isTheGameEnded;
-  int counterOfGuesses;
+  private boolean isTheGameEnded;
+  private int counterOfGuesses;
 
 
   public CowsAndBulls() {
@@ -32,13 +32,16 @@ public class CowsAndBulls {
   public String guess(int guessedNumber, int numberOfCAB) {
     String randomNumberString = Integer.toString(numberOfCAB);
     String guessesNumberString = Integer.toString(guessedNumber);
-    String formattedguessesNumberString = String.format("%04d", guessedNumber); //formatted-et tovabbvinni
+    String formattedguessesNumberString = String.format("%04d", guessedNumber);
     int counterOfCows = 0;
     int counterOfBulls = 0;
     for (int i = 0; i < formattedguessesNumberString.length(); i++) {
       //positional match
       if (formattedguessesNumberString.charAt(i) == randomNumberString.charAt(i)) {
         counterOfCows += 1;
+        System.out.println("#1 " + randomNumberString);
+        randomNumberString = randomNumberString.substring(0,i) + "x" + randomNumberString.substring(i+1,randomNumberString.length()-i+1);
+        System.out.println("2 " + randomNumberString);
         //simple match - place is different
       } else if (randomNumberString.contains(String.valueOf(formattedguessesNumberString.charAt(i)))
           && formattedguessesNumberString.charAt(i) != randomNumberString.charAt(i)) {
@@ -50,5 +53,9 @@ public class CowsAndBulls {
       return "You won!";
     }
     return (counterOfBulls + " bulls; " + counterOfCows + " cows");
+  }
+
+  public int getCounterOfGuesses() {
+    return counterOfGuesses;
   }
 }
