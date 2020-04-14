@@ -22,7 +22,6 @@ public class Exercise9 {
     Map<String, Long> frequentChars = Arrays.stream(string.split(""))
         .collect(Collectors.groupingBy(c -> c, Collectors.counting()));
     frequentChars.forEach((k, v) -> System.out.println(k + ":" + v));
-    //     .forEach((k, v) -> System.out.println(k + ":" + v);
   }
 }
 
