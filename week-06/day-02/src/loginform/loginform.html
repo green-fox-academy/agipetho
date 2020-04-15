@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Login form</title>
+</head>
+
+<body>
+<h1>ACCOUNT LOGIN</h1>
+<form action="/login" method="POST">
+
+
+    <label for="username">username</label>
+    <input type="text" id="username" name="username" placeholder="annipanni" autofocus required
+           minlength="4">
+
+
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" required>
+
+    <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+
+    <span class="password">Forgot Password?</span>
+
+    <input type="submit" value=Login>
+
+</form>
+
+</body>
+</html>

@@ -1,7 +1,8 @@
 /*
 The swcharacters.csv file contains the list of characters appeared in the Star Wars universe.
 
-"BBY" stands for Before the Battle of Yavin, it's the "year zero" in the Galactic Standard Calendar. For the age calculation let's assume that it's "year zero" and every character lives for the sake of simplicity.
+"BBY" stands for Before the Battle of Yavin, it's the "year zero" in the Galactic Standard Calendar.
+For the age calculation let's assume that it's "year zero" and every character lives for the sake of simplicity.
 
 Create Stream expressions to perform the following exercises:
 
@@ -16,4 +17,7 @@ The result should be a Map<String, Map<String, Integer>>
 package exercise12.StarWars;
 
 public class StarWars {
+  public static void main(String[] args) {
+
+  }
 }
