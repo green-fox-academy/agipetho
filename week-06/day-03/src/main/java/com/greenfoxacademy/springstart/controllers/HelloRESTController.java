@@ -12,10 +12,15 @@ Your output should look like:
   "content": "Hello, World!"
 }
  */
-
+/*
+Please improve your previous app to greet you and get the name from url query parameter.
+You should use @RequestParam annotation
+ */
 package com.greenfoxacademy.springstart.controllers;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.concurrent.atomic.AtomicLong;
@@ -24,7 +29,7 @@ import java.util.concurrent.atomic.AtomicLong;
 public class HelloRESTController {
 
   @RequestMapping(value = ("/greeting"))
-  public Greeting greeting(Long id, String name) {
-    return new Greeting(5L, "Hello, World!");
+  public Greeting greeting(Long id, @RequestParam String name) {
+    return new Greeting(1L, "Hello, " + name);
   }
 }
