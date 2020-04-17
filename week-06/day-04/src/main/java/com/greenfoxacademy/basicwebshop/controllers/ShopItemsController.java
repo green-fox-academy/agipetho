@@ -7,21 +7,24 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class ShopItemsController {
-  ShopeItem item1 = new ShopeItem("Basketball", "Whilson Basketball", 25000, 1);
-  ShopeItem item2 = new ShopeItem("Souvenir", "Souvenir with ZsebeFeri pic", 2000, 5);
-  ShopeItem item3 = new ShopeItem("Isotonic drink", "Isotonic drink for athlets", 500, 100);
-  ShopeItem item4 = new ShopeItem("Home Kit", "BC Kormend Official home kit", 48000, 2);
-  ShopeItem item5 = new ShopeItem("Baseball cap", "Adidas baseball cap", 4200, 0);
 
-//    bcKormendShopeItems.add(item1);
-//    bcKormendShopeItems.add(item2);
-//    bcKormendShopeItems.add(item3);
-//    bcKormendShopeItems.add(item4);
-//    bcKormendShopeItems.add(item5);
-
-
+  
   @RequestMapping(value = "/web/greeting", method = RequestMethod.GET)
   public String greeting(Model model) {
+
+    ShopItems bcKormendShopeItems = new ShopItems();
+    ShopItem item1 = new ShopItem("Basketball", "Whilson Basketball", 25000, 1);
+    ShopItem item2 = new ShopItem("Souvenir", "Souvenir with ZsebeFeri pic", 2000, 5);
+    ShopItem item3 = new ShopItem("Isotonic drink", "Isotonic drink for athlets", 500, 100);
+    ShopItem item4 = new ShopItem("Home Kit", "BC Kormend Official home kit", 48000, 2);
+    ShopItem item5 = new ShopItem("Baseball cap", "Adidas baseball cap", 4200, 0);
+
+    bcKormendShopeItems.addShopItem(item1);
+    bcKormendShopeItems.addShopItem(item2);
+    bcKormendShopeItems.addShopItem(item3);
+    bcKormendShopeItems.addShopItem(item4);
+    bcKormendShopeItems.addShopItem(item5);
+
     model.addAttribute("name", " World");
     return "greeting";
   }
