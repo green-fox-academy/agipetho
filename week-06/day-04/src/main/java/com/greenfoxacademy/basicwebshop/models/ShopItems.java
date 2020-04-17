@@ -33,8 +33,6 @@ public class ShopItems {
     return shopItems;
   }
 
-  //TODO: here comes all the streams....
-
   public List<ShopItem> onlyAvailable() {
     return shopItems.stream()
         .filter(x -> x.getQuantityOfStock() > 0)
@@ -55,6 +53,7 @@ public class ShopItems {
 
   public double averageStock() {
     return shopItems.stream()
-        .mapToInt(Integer::intValue).average());
+        .mapToInt(c -> c.getQuantityOfStock()).average().getAsDouble();
+
   }
 }

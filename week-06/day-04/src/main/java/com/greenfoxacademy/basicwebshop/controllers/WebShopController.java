@@ -37,6 +37,12 @@ public class WebShopController {
     model.addAttribute("items", bcKormendShopeItems.containsWhilson());
     return "webshop";
   }
+
+  @GetMapping("/average-Stock")
+  public String averageStock(Model model) {
+    model.addAttribute("average", bcKormendShopeItems.averageStock());
+    return "averagestock";
+  }
 }
 
 

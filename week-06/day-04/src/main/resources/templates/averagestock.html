@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-2<html lang="en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/styles.css"/>
@@ -16,12 +16,10 @@
         <a href="/only-available" target="blank">ONLY AVAILABLE</a>
         <a href="/cheapest-first" target="blank">CHEAPEST FIRST</a>
         <a href="/contains-Whilson" target="blank">CONTAINS WHILSON</a>
-        <a>AVERAGE STOCK</a>
+        <a href="/average-Stock" target="blank">AVERAGE STOCK</a>
         <a>MOST EXPENSIVE AVAILABLE</a>
     </nav>
 </header>
-
-<h2>Average stock: </h2>
-<p th:text="'Average stock: ' + ${name}" ></p>
+<h2 th:text="'Average stock: ' + ${average}" ></h2>
 </body>
 </html>
