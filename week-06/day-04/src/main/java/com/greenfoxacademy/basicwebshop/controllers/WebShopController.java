@@ -13,15 +13,15 @@ import java.util.List;
 @Controller
 public class WebShopController {
   ShopItems bcKormendShopeItems = new ShopItems();
-  @RequestMapping(value = "/webshop", method = RequestMethod.GET)
-  public String getWebShop() {
+  @GetMapping("/webshop")
+  public String wholeWebshop (Model model){
+    model.addAttribute("items", bcKormendShopeItems.getShopItems());
     return "webshop";
   }
 
-  @GetMapping("trymodel")
-  public String tryModel (Model model){
-    //List<String> trialList = Arrays.asList("pelda1", "pelda2");
-    model.addAttribute("items", bcKormendShopeItems.getShopItems());
+  @GetMapping("/only-available")
+  public String onlyAvailable (Model model){
+    model.addAttribute("items", bcKormendShopeItems.onlyAvailable());
     return "webshop";
   }
 }

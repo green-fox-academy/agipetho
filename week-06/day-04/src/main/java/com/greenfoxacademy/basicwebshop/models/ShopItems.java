@@ -2,6 +2,7 @@ package com.greenfoxacademy.basicwebshop.models;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ShopItems {
 
@@ -32,4 +33,10 @@ public class ShopItems {
   }
 
   //TODO: here comes all the streams....
+
+  public List<ShopItem> onlyAvailable(){
+    return shopItems.stream()
+        .filter(x -> x.getQuantityOfStock() > 0)
+        .collect(Collectors.toList());
+  }
 }
