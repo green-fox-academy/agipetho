@@ -13,21 +13,28 @@ import java.util.List;
 @Controller
 public class WebShopController {
   ShopItems bcKormendShopeItems = new ShopItems();
+
   @GetMapping("/webshop")
-  public String wholeWebshop (Model model){
+  public String wholeWebshop(Model model) {
     model.addAttribute("items", bcKormendShopeItems.getShopItems());
     return "webshop";
   }
 
   @GetMapping("/only-available")
-  public String onlyAvailable (Model model){
+  public String onlyAvailable(Model model) {
     model.addAttribute("items", bcKormendShopeItems.onlyAvailable());
     return "webshop";
   }
 
   @GetMapping("/cheapest-first")
-  public String cheapestFirst (Model model){
+  public String cheapestFirst(Model model) {
     model.addAttribute("items", bcKormendShopeItems.cheapestFirst());
+    return "webshop";
+  }
+
+  @GetMapping("/contains-Whilson")
+  public String containsWhilson(Model model) {
+    model.addAttribute("items", bcKormendShopeItems.containsWhilson());
     return "webshop";
   }
 }

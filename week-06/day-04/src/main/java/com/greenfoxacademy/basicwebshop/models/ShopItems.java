@@ -17,11 +17,11 @@ public class ShopItems {
     ShopItem item3 = new ShopItem("Isotonic drink", "Isotonic drink for athlets", 500, 100);
     ShopItem item4 = new ShopItem("Home Kit", "BC Kormend Official home kit", 48000, 2);
     ShopItem item5 = new ShopItem("Baseball cap", "Adidas baseball cap", 4200, 0);
-   shopItems.add(item1);
-   shopItems.add(item2);
-   shopItems.add(item3);
-   shopItems.add(item4);
-   shopItems.add(item5);
+    shopItems.add(item1);
+    shopItems.add(item2);
+    shopItems.add(item3);
+    shopItems.add(item4);
+    shopItems.add(item5);
 
   }
 
@@ -35,15 +35,21 @@ public class ShopItems {
 
   //TODO: here comes all the streams....
 
-  public List<ShopItem> onlyAvailable(){
+  public List<ShopItem> onlyAvailable() {
     return shopItems.stream()
         .filter(x -> x.getQuantityOfStock() > 0)
         .collect(Collectors.toList());
   }
 
-  public List<ShopItem> cheapestFirst(){
+  public List<ShopItem> cheapestFirst() {
     return shopItems.stream()
         .sorted(Comparator.comparing(ShopItem::getPrice))
+        .collect(Collectors.toList());
+  }
+
+  public List<ShopItem> containsWhilson() {
+    return shopItems.stream()
+        .filter(c -> c.getDescription().contains("Whilson") || c.getName().contains("Whilson"))
         .collect(Collectors.toList());
   }
 }
