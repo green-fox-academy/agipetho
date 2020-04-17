@@ -52,4 +52,9 @@ public class ShopItems {
         .filter(c -> c.getDescription().contains("Whilson") || c.getName().contains("Whilson"))
         .collect(Collectors.toList());
   }
+
+  public double averageStock() {
+    return shopItems.stream()
+        .mapToInt(Integer::intValue).average());
+  }
 }
