@@ -1,6 +1,7 @@
 package com.greenfoxacademy.basicwebshop.models;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -37,6 +38,12 @@ public class ShopItems {
   public List<ShopItem> onlyAvailable(){
     return shopItems.stream()
         .filter(x -> x.getQuantityOfStock() > 0)
+        .collect(Collectors.toList());
+  }
+
+  public List<ShopItem> cheapestFirst(){
+    return shopItems.stream()
+        .sorted(Comparator.comparing(ShopItem::getPrice))
         .collect(Collectors.toList());
   }
 }

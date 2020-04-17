@@ -24,6 +24,12 @@ public class WebShopController {
     model.addAttribute("items", bcKormendShopeItems.onlyAvailable());
     return "webshop";
   }
+
+  @GetMapping("/cheapest-first")
+  public String cheapestFirst (Model model){
+    model.addAttribute("items", bcKormendShopeItems.cheapestFirst());
+    return "webshop";
+  }
 }
 
 
