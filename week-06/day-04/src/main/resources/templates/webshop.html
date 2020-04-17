@@ -1,8 +1,9 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/styles.css"/>
     <title>Title</title>
 </head>
 <body>
@@ -19,5 +20,25 @@
         <a>MOST EXPENSIVE AVAILABLE</a>
     </nav>
 </header>
+
+<table>
+
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Quantity of stock</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item : ${items}">
+        <td th:text="${item.name}"></td>
+        <td th:text="${item.description}"></td>
+        <td th:text="${item.price}"></td>
+        <td th:text="${item.quantityOfStock}"></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

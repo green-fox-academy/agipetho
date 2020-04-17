@@ -1,4 +1,4 @@
-package com.greenfoxacademy.basicwebshop.controllers;
+package com.greenfoxacademy.basicwebshop.models;
 
 public class ShopItem {
   private String name;
