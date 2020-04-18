@@ -4,11 +4,6 @@ import com.greenfoxacademy.basicwebshop.models.ShopItems;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
-import java.util.Arrays;
-import java.util.List;
 
 @Controller
 public class WebShopController {
@@ -38,11 +33,17 @@ public class WebShopController {
     return "webshop";
   }
 
-  @GetMapping("/average-Stock")
+  @GetMapping("/average-stock")
   public String averageStock(Model model) {
-    model.addAttribute("average", bcKormendShopeItems.averageStock());
-    return "averagestock";
+    model.addAttribute("info", bcKormendShopeItems.averageStock());
+    return "infopage";
   }
+  @GetMapping("/most-expensive")
+  public String mostExpensive(Model model) {
+    model.addAttribute("info", bcKormendShopeItems.mostExpensive());
+    return "infopage";
+  }
+
 }
 
 

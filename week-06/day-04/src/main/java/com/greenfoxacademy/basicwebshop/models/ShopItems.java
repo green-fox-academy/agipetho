@@ -51,9 +51,17 @@ public class ShopItems {
         .collect(Collectors.toList());
   }
 
-  public double averageStock() {
-    return shopItems.stream()
-        .mapToInt(c -> c.getQuantityOfStock()).average().getAsDouble();
+  public String averageStock() {
+    return ("The average stock: " + (shopItems.stream()
+        .mapToInt(c -> c.getQuantityOfStock())
+        .average()
+        .getAsDouble()));
+  }
 
+  public String mostExpensive() {
+    return ("The most expensive item: " + (shopItems.stream()
+        .max(Comparator.comparing(ShopItem::getPrice))
+        .get()
+        .getName()));
   }
 }
