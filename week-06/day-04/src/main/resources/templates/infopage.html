@@ -20,16 +20,13 @@
         <a href="/most-expensive" target="blank">MOST EXPENSIVE AVAILABLE</a>
     </nav>
 </header>
-<p>
-    Search for:
-</p>
-
-<div class="search-container">
-    <form action="/action_page.php">
-        <input type="text" placeholder="Somethink like nike..." name="search">
-        <button type="submit">Search</button>
-    </form>
-</div>
+<form action="/search" method="POST">
+    <label for="searchInput">Search for:</label>
+    <div class="search-area">
+        <input type="text" id="searchInput" name="searchInput" placeholder="Something like nike...">
+        <input type="submit" value="Search">
+    </div>
+</form>
 <h2 th:text="${info}"></h2>
 </body>
 </html>

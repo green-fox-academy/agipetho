@@ -1,5 +1,8 @@
 package com.greenfoxacademy.basicwebshop.models;
 
+import org.hibernate.validator.constraints.ParameterScriptAssert;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -63,5 +66,12 @@ public class ShopItems {
         .max(Comparator.comparing(ShopItem::getPrice))
         .get()
         .getName()));
+  }
+
+  public List<ShopItem> search(String searchInput) {
+    return shopItems.stream()
+        .filter(c -> c.getDescription().toLowerCase().contains(searchInput.toLowerCase()) ||
+            c.getName().toLowerCase().contains(searchInput.toLowerCase()))
+        .collect(Collectors.toList());
   }
 }

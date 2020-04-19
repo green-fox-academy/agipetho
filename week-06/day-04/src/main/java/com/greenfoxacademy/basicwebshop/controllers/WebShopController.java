@@ -3,7 +3,7 @@ package com.greenfoxacademy.basicwebshop.controllers;
 import com.greenfoxacademy.basicwebshop.models.ShopItems;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class WebShopController {
@@ -38,12 +38,19 @@ public class WebShopController {
     model.addAttribute("info", bcKormendShopeItems.averageStock());
     return "infopage";
   }
+
   @GetMapping("/most-expensive")
   public String mostExpensive(Model model) {
     model.addAttribute("info", bcKormendShopeItems.mostExpensive());
     return "infopage";
   }
 
+
+  @RequestMapping(value="/search", method = RequestMethod.POST)
+  public String search(@RequestParam ("searchInput") String searchInput, Model model) {
+    model.addAttribute("items", bcKormendShopeItems.search(searchInput));
+    return "webshop";
+  }
 }
 
 
