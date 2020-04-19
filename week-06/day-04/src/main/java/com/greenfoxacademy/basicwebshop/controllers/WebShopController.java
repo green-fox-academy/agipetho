@@ -27,9 +27,9 @@ public class WebShopController {
     return "webshop";
   }
 
-  @GetMapping("/contains-Whilson")
+  @GetMapping("/contains-Wilson")
   public String containsWhilson(Model model) {
-    model.addAttribute("items", bcKormendShopeItems.containsWhilson());
+    model.addAttribute("items", bcKormendShopeItems.containsWilson());
     return "webshop";
   }
 

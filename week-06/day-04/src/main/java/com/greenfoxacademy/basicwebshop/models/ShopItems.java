@@ -15,7 +15,7 @@ public class ShopItems {
   public ShopItems() {
     shopItems = new ArrayList<>();
 
-    ShopItem item1 = new ShopItem("Basketball", "Whilson Basketball", 25000, 1);
+    ShopItem item1 = new ShopItem("Basketball", "Wilson Basketball", 25000, 1);
     ShopItem item2 = new ShopItem("Souvenir", "Souvenir with ZsebeFeri pic", 2000, 5);
     ShopItem item3 = new ShopItem("Isotonic drink", "Isotonic drink for athlets", 500, 100);
     ShopItem item4 = new ShopItem("Home Kit", "BC Kormend Official home kit", 48000, 2);
@@ -48,9 +48,9 @@ public class ShopItems {
         .collect(Collectors.toList());
   }
 
-  public List<ShopItem> containsWhilson() {
+  public List<ShopItem> containsWilson() {
     return shopItems.stream()
-        .filter(c -> c.getDescription().contains("Whilson") || c.getName().contains("Whilson"))
+        .filter(c -> c.getDescription().contains("Wilson") || c.getName().contains("Wilson"))
         .collect(Collectors.toList());
   }
 
