@@ -45,9 +45,8 @@ public class WebShopController {
     return "infopage";
   }
 
-
-  @RequestMapping(value="/search", method = RequestMethod.POST)
-  public String search(@RequestParam ("searchInput") String searchInput, Model model) {
+  @RequestMapping(value = "/search", method = RequestMethod.POST)
+  public String search(@RequestParam("searchInput") String searchInput, Model model) {
     model.addAttribute("items", bcKormendShopeItems.search(searchInput));
     return "webshop";
   }

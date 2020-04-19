@@ -1,9 +1,46 @@
 html {
     font-size: 16px;
-    color: green;
+    color: #F44336;
+    text-align-all: center;
+    background: #fff3d3;
+    padding: 20px;
 }
 p {
     font-size: 16px;
-    color: red;
+    color: #F44336;
+}
+
+h1{
+    text-shadow: 2px 2px;
+}
+
+nav, table, form{
+    padding: 10px;
+}
+
+a{
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+body{
+    width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+table, th, td, tr {
+    border: 3px black solid;
+    border-collapse: collapse;
+    padding: 10px;
+    text-align-all: center;
+}
+
+th{
+    color: black;
+    background-color: rgba(79, 46, 42, 0.23);
 }
 
