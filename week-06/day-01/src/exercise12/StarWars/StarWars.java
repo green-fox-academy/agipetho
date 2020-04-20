@@ -14,6 +14,8 @@ The age groups are: "below 21", "between 21 and 40", "above 40" and "unknown"
 The result should be a Map<String, Map<String, Integer>>
  */
 
+//TODO: Finish it :)
+
 package exercise12.StarWars;
 
 import java.io.IOException;
@@ -34,10 +36,6 @@ public class StarWars {
       System.out.println("Something went wrong with reading");
       System.exit(-1);
     }
-    lines.stream()
-        .
-    // String[] elementsOfTheLine = line.split(" ");
-
   }
 }
 /*
