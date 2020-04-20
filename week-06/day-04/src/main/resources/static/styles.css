@@ -5,41 +5,116 @@ html {
     background: #fff3d3;
     padding: 20px;
 }
+
 p {
     font-size: 16px;
     color: #F44336;
 }
 
-h1{
+h1 {
     text-shadow: 2px 2px;
+    alignment: center;
 }
 
-nav, table, form{
-    padding: 10px;
-}
-
-a{
-    float: left;
+a {
     color: black;
-    text-align: center;
-    padding: 14px 16px;
+    padding: 2px 2px;
     text-decoration: none;
+    font-size: 14px;
 }
 
-body{
+body {
     width: 1000px;
     margin: 0 auto;
-    padding: 10px;
+    padding: 20px;
+    border: 20px;
+}
+
+form {
+    position: absolute;
+    margin-left: 100px;
+}
+
+input {
+    background-color: #F44336;
+    border: none;
+    color: white;
+}
+
+::placeholder {
+    color: white;
+    opacity: 1;
+}
+
+.search-area {
+    position: revert;
+    length: 50px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    background-color: #F44336;
+    height: 20px;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+.search-area:hover > .searchInput {
+    width: 240px;
+    padding: 0 6px;
+}
+
+.search-area:hover > .searchButton {
+    background: white;
+    color: #2f3640;
+}
+
+.searchButton {
+    color: white;
+    float: right;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #2f3640;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}
+
+
+.searchInput {
+    border: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: white;
+    text-decoration: white;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 0px;
+}
+
+@media screen and (max-width: 620px) {
+    .search-area:hover > .searchInput {
+        width: 100px;
+        padding: 0 6px;
+    }
+}
+
+h2 {
+    margin-top: 80px;
 }
 
 table, th, td, tr {
+    margin-top: 80px;
     border: 3px black solid;
     border-collapse: collapse;
     padding: 10px;
     text-align-all: center;
 }
 
-th{
+th {
     color: black;
     background-color: rgba(79, 46, 42, 0.23);
 }
