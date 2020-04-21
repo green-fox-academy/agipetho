@@ -1,10 +1,16 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Greeting</title>
 </head>
 <body>
-<h1>hello</h1>
+<p>
+    This is an <span th:text="${formatted}"></span> text. <span th:text="${formatted2}"></span>
+</p>
+<p>
+    This is an <span th:utext="${formatted}"></span> text. <span th:utext="${formatted2}"></span>
+</p>
 </body>
 </html>
