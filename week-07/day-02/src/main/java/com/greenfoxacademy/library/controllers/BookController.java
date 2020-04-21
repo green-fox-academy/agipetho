@@ -40,7 +40,6 @@ public class BookController {
     } else {
       model.addAttribute("error", "No book found");
     }
-
     return "details";
   }
 
