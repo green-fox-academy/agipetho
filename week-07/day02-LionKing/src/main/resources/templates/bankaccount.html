@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Banc Accounts</title>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
 </head>
 <body>
 <table>
@@ -11,6 +11,7 @@
         <th>Balance</th>
         <th>Animal type</th>
         <th>Index</th>
+        <th>Is a King?</th>
 
     </tr>
     <tr th:each="bankAccount:${bankAccounts}" th:object="${bankAccount}">
@@ -18,17 +19,17 @@
         <td th:text="(*{#numbers.formatCurrency(getBalance())} + ' Zebra')"></td>
         <td th:text="*{animalType}"></td>
         <td th:text="${bankAccountStat.count}"></td>
+        <td th:utext="*{isAKing}== true ?  '<b> yes </b>' : 'no'"></td>
     </tr>
 </table>
 </body>
 </html>
 
 <!--
-Add a new column to your template where you show the index of each element in your List
-Java (not available in C#): In an iteration if you use
-your variable name + "Stat" (e.g. ${bankAccountStat.}) there will be various new methods
-available for you
-Find the one which helps you to display the index of the elements in this iteration
+
+"${gender}=='male' ?  'Hi buddy'  :  'I am so pleased to see you'"
+Add a new column to your template where you show us that the owner of the BankAccount is a King
+If he is a King, make the text look shiny: add some design according to your taste :)
 -->
 
 
