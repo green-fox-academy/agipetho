@@ -23,6 +23,10 @@ public class BankAccountController {
 
   public BankAccountController() {
     bankAccounts.add(new BankAccount("Simba", 2000, "Lion"));
+    bankAccounts.add(new BankAccount("car2", 1000, "Lion"));
+    bankAccounts.add(new BankAccount("car3", 4000, "Wolf"));
+    bankAccounts.add(new BankAccount("car4", 5000, "Lion"));
+    bankAccounts.add(new BankAccount("car5", 600, "Elephant"));
   }
 
   public List<BankAccount> getBankAccounts() {
