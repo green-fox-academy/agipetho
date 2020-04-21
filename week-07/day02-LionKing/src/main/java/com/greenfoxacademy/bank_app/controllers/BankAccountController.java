@@ -11,6 +11,8 @@ package com.greenfoxacademy.bank_app.controllers;
 import com.greenfoxacademy.bank_app.models.BankAccount;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -41,7 +43,14 @@ public class BankAccountController {
   @RequestMapping(path = "/show", method = RequestMethod.GET)
   public String showBooks(Model model) {
     model.addAttribute("bankAccounts", bankAccounts);
+    model.addAttribute("emptyAccount", new BankAccount());
     return "bankaccount";
+  }
+
+  @PostMapping("/add")
+  public String addAccount(@ModelAttribute BankAccount bankAccount) {
+    bankAccounts.add(bankAccount);
+    return "redirect:/show";
   }
 
   @RequestMapping(path = "/greeting", method = RequestMethod.GET)

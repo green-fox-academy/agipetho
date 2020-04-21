@@ -16,6 +16,9 @@ public class BankAccount {
     this.isGoodGuy = isGoodGuy;
   }
 
+  public BankAccount() {
+  }
+
   public boolean getIsGoodGuy() {
     return isGoodGuy;
   }

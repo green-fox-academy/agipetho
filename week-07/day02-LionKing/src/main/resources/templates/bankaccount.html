@@ -24,14 +24,23 @@
         <td th:utext="*{isGoodGuy}== true ?  '<b> yes </b>' : 'no'"></td>
     </tr>
 </table>
+<h2>Add new bankaccount: </h2>
+<form action="/show" method="post" th:object="${emptyAccount}">
+    <label>Name:</label>
+    <input type="text" th:field="*{name}"><br>
+    <label>Balance:</label>
+    <input type="number" th:field="*{balance}"><br>
+    <label>Animal type:</label>
+    <input type="text" th:field="*{animalType}"><br>
+    <label>Is he/she a king?:</label>
+    <input type="text" th:field="*{isAKing}"><br>
+    <label>Is he/she a good guy:</label>
+    <input type="text" th:field="*{isGoodGuy}"><br>
+    <button type="submit">Add bankaccount</button>
+</form>
 </body>
 </html>
 
-<!--
 
-"${gender}=='male' ?  'Hi buddy'  :  'I am so pleased to see you'"
-Add a new column to your template where you show us that the owner of the BankAccount is a King
-If he is a King, make the text look shiny: add some design according to your taste :)
--->
 
 
