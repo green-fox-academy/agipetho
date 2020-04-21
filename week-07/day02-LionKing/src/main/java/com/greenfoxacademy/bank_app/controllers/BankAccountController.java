@@ -22,11 +22,11 @@ public class BankAccountController {
   private List<BankAccount> bankAccounts = new ArrayList<>();
 
   public BankAccountController() {
-    bankAccounts.add(new BankAccount("Simba", 2000, "Lion", true));
-    bankAccounts.add(new BankAccount("car2", 1000, "Lion", false));
-    bankAccounts.add(new BankAccount("car3", 4000, "Wolf", true));
-    bankAccounts.add(new BankAccount("car4", 5000, "Lion", true));
-    bankAccounts.add(new BankAccount("car5", 600, "Elephant", false
+    bankAccounts.add(new BankAccount("Simba", 2000, "Lion", true, true));
+    bankAccounts.add(new BankAccount("car2", 1000, "Lion", false, false));
+    bankAccounts.add(new BankAccount("car3", 4000, "Wolf", true, false));
+    bankAccounts.add(new BankAccount("car4", 5000, "Lion", true, true));
+    bankAccounts.add(new BankAccount("car5", 600, "Elephant", false, true
     ));
   }
 

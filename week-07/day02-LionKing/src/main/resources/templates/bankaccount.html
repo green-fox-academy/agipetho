@@ -12,6 +12,7 @@
         <th>Animal type</th>
         <th>Index</th>
         <th>Is a King?</th>
+        <th>Is Good Guy??</th>
 
     </tr>
     <tr th:each="bankAccount:${bankAccounts}" th:object="${bankAccount}">
@@ -20,6 +21,7 @@
         <td th:text="*{animalType}"></td>
         <td th:text="${bankAccountStat.count}"></td>
         <td th:utext="*{isAKing}== true ?  '<b> yes </b>' : 'no'"></td>
+        <td th:utext="*{isGoodGuy}== true ?  '<b> yes </b>' : 'no'"></td>
     </tr>
 </table>
 </body>
