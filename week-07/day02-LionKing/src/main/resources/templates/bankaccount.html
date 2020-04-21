@@ -14,7 +14,7 @@
     </tr>
     <tr th:each="bankAccount:${bankAccounts}" th:object="${bankAccount}">
         <td th:text="*{name}"></td>
-        <td th:text="*{balance}"></td>
+        <td th:text="(*{#numbers.formatCurrency(getBalance())} + ' Zebra')"></td>
         <td th:text="*{animalType}"></td>
     </tr>
 </table>

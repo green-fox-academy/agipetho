@@ -38,4 +38,15 @@ public class BankAccountController {
     model.addAttribute("bankAccounts", bankAccounts);
     return "bankaccount";
   }
+
+  @RequestMapping(path = "/greeting", method = RequestMethod.GET)
+  public String greeting() {
+    return "greeting";
+  /*
+  Create an endpoint which displays the following String: "This is an <em>HTML</em> text.
+   <b>Enjoy yourself!</b>"
+Add this String to your new template
+Java: as both th:utext and th:text as well
+   */
+  }
 }
