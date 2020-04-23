@@ -1,4 +1,4 @@
-package com.greenfoxacademy.di.usefulutilities;
+package com.greenfoxacademy.di.usefulutilities.services;
 
 // # Useful Utilities
 
@@ -35,8 +35,10 @@ public class UtilityService {
   public String randomColor() {
     return colors.get(random.nextInt(colors.size()));
   }
-  
 
+  public boolean isValidEmail(String inputEMail) {
+    return inputEMail.contains("@") && inputEMail.contains(".");
+  }
 
   public String caesar(String text, int number) {
     if (number < 0) {

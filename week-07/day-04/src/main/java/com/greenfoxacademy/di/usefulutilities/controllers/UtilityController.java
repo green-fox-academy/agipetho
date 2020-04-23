@@ -13,13 +13,13 @@
 
 package com.greenfoxacademy.di.usefulutilities.controllers;
 
-import com.greenfoxacademy.di.usefulutilities.UtilityService;
+import com.greenfoxacademy.di.usefulutilities.services.UtilityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/useful")
@@ -31,18 +31,16 @@ public class UtilityController {
     this.utilityService = utilityService;
   }
 
-  @RequestMapping("")
+  @GetMapping("")
   public String renderMain() {
-    //mapped to hostname:port/useful
     return "main";
   }
 
-  @RequestMapping("/colored")
+  @GetMapping("/colored")
   public String renderColored(Model model) {
     model.addAttribute("color", utilityService.randomColor());
     return "main";
   }
-
 
   /*
   // ## Email validator
@@ -54,14 +52,14 @@ public class UtilityController {
 //     - `is@this.valid is a valid email address` in green
 //     - `not_valid_email.com is not a valid email address` in red
    */
-
-  @RequestMapping("/email")
-  public String renderEMail() {
-    //mapped to hostname:port/home/index/
-    return "main";
+  @GetMapping("/email")
+  public String renderEMail(Model model, @RequestParam String email) {
+    model.addAttribute("inputemail", email);
+    model.addAttribute("isValidEmail", utilityService.isValidEmail(email));
+    return "email";
   }
 
-  @RequestMapping("/caesar")
+  @GetMapping("/caesar")
   public String renderCaesar() {
     //mapped to hostname:port/home/index/
     return "main";

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Email</title>
+</head>
+<body>
+<p th:style="${isValidEmail} ? 'color:green;' : 'color:red;'">
+    <span th:text="${inputemail}"></span>
+    is <span th:unless="${isValidEmail}">not</span>
+    a valid email result.
+</p>
+</body>
+</html>
