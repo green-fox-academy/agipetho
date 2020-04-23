@@ -1,5 +1,6 @@
 package com.greenfoxacademy.di;
 
+import com.greenfoxacademy.di.coloringaround.MyColor;
 import com.greenfoxacademy.di.helloDI.Printer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -10,10 +11,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DiApplication implements CommandLineRunner {
 
   private Printer printer;
+  private MyColor myColor;
 
   @Autowired
-  public DiApplication(Printer printer) {
+  public DiApplication(Printer printer, MyColor myColor) {
     this.printer = printer;
+    this.myColor = myColor;
   }
 
   public static void main(String[] args) {
@@ -22,23 +25,7 @@ public class DiApplication implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
-    printer.log("hello");
+    myColor.printColor();
   }
 }
-/*
-@SpringBootApplication
-public class DependencyinjectionApplication implements CommandLineRunner {
-  private Printer printer;
-  @Autowired
-  DependencyinjectionApplication(Printer printer) {
-    this.printer = printer;
-  }
-  public static void main(String[] args) {
-    SpringApplication.run(DependencyinjectionApplication.class, args);
-  }
-  @Override
-  public void run(String... args) throws Exception {
-    printer.log("hello");
-  }
-}
-*/
+
