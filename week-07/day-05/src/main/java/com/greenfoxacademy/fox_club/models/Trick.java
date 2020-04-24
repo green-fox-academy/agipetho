@@ -1,4 +1,5 @@
 package com.greenfoxacademy.fox_club.models;
 
 public class Trick {
+  private String name;
 }
