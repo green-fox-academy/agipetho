@@ -42,16 +42,6 @@ public class UtilityController {
     return "main";
   }
 
-  /*
-  // ## Email validator
-// - Have an endpoint at `/useful/email` with a queryparam
-// - Have a link at the main page to an example: `/useful/email?email=is@this.valid`
-// - Create a `validateEmail()` method in the `UtilityService`
-//     - check if the string contains a `@` and a `.`
-// - Display the following to the user
-//     - `is@this.valid is a valid email address` in green
-//     - `not_valid_email.com is not a valid email address` in red
-   */
   @GetMapping("/email")
   public String renderEMail(Model model, @RequestParam String email) {
     model.addAttribute("inputemail", email);
@@ -61,7 +51,6 @@ public class UtilityController {
 
   @GetMapping("/caesar")
   public String renderCaesar() {
-    //mapped to hostname:port/home/index/
     return "main";
   }
 
