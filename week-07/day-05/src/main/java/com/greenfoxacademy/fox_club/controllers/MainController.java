@@ -19,9 +19,8 @@ public class MainController {
   }
 
   @PostMapping("/login")
-  public String getLoginInfo(Model model, @RequestParam("loginInput") String loginInput) {
-    model.addAttribute("loginInput", "loginInput");
-    return "index";
-    //return "redirect:/login/" + loginInput;
+  public String getLoginInfo(Model model, @RequestParam("name") String name) {
+    model.addAttribute("name", "name");
+    return "redirect:/?name=" + name;
   }
 }
