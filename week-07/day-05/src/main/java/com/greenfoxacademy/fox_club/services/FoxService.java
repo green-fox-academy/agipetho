@@ -1,5 +1,7 @@
 package com.greenfoxacademy.fox_club.services;
 
+import com.greenfoxacademy.fox_club.models.Drink;
+import com.greenfoxacademy.fox_club.models.Food;
 import com.greenfoxacademy.fox_club.models.Fox;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +14,11 @@ public class FoxService {
 
   public FoxService(){
     this.foxes = new ArrayList<>();
-    foxes.add(new Fox("Csele"));
-    foxes.add(new Fox("Iny"));
-    foxes.add(new Fox("Vuk"));
-    foxes.add(new Fox("A kis Herceg rokaja"));
+    foxes.add(new Fox("Csele", Food.HAMBURGER, Drink.WATER));
+    foxes.add(new Fox("Iny", Food.CURRY, Drink.COLA));
+    foxes.add(new Fox("Vuk", Food.PASTA, Drink.LEMONADE));
+    foxes.add(new Fox("A kis Herceg rokaja", Food.TACO, Drink.MILK));
   }
+
+
 }

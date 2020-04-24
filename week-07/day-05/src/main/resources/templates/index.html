@@ -13,14 +13,19 @@
 <div>
     <img src="greenfox.png" alt="fox img">
 </div>
-    <h1>This is Mr Fox and he is...</h1>
-
+    <div>
+        This is (name, default!). Currently living on (food) and (drink). He/she knows (list size) trick(s).
+    <h2>This is
+    <span th:text="${name}"></span> . Currently living on (food) and (drink).
+        He/she knows (list size) trick(s).
+    </h2>
     <h2> Known tricks </h2>
     <ul>
         <li>Coffee</li>
         <li>Tea</li>
         <li>..</li>
     </ul>
+    </div>
 </header>
 </body>
 </html>

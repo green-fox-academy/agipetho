@@ -8,7 +8,7 @@ private List<Trick> listOfTricks;
 private Food food;
 private Drink drink;
 
-public Fox(String name){
+public Fox(String name, Food food, Drink drink){
 }
 
   public String getName() {
