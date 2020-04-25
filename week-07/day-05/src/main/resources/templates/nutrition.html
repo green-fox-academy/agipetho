@@ -18,24 +18,23 @@
     <p>Here you can change the food and drink for your FOX. </p>
     <p>Please pay attention to the health of your FOX:)</p>
     <form th:action="@{'/nutritionStore'}" th:method="post">
-        <!--<label for="food">Food</label>
-        <select name="selectedFood" id="food">
-            <option th:each="food : ${foods}"
-                    th:value="${food.name}"
-                    th:text="${food.name}"
-                    th:selected="${food.getIsSelected() == true}">
-                <select>
-            <option th:each="state : ${T(com.mypackage.Ticket.State).values()}"
-                    th:value="${state}"
-                    th:text="${state}">
+        <label for="food">Food</label>
+        <select name="food" id="food">
+            <option th:each="food : ${T(com.greenfoxacademy.fox_club.models.Food).values()}"
+                    th:value="${food}"
+                    th:text="${food}"
+                    th:selected="${food==PIZZA}">
             </option>
-        </select>-->
-
+        </select>
         </select>
         <label for="drink">Drink</label>
         <select name="selectedDrink" id="drink">
-           <option>Water</option>
-           <option>Milk</option>
+            <option th:each="drink : ${T(com.greenfoxacademy.fox_club.models.Drink).values()}"
+                    th:value="${drink}"
+                    th:text="${drink}"
+                    th:selected="${drink==MILK}">
+            </option>
+        </select>
         </select>
         <button type="submit">Change</button>
     </form>
