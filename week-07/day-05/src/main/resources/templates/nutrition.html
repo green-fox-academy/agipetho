@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nutrition View</title>
+</head>
+<body>
+<header>
+    <u1>
+        <li><a href="/">Information</a></li>
+        <li><a href="/">Nutrition Store</a></li>
+        <li><a href="/">Trick Center</a></li>
+        <li><a href="/">Action history</a></li>
+    </u1>
+</header>
+<main>
+    <p>Here you can change the food and drink for your FOX. </p>
+    <p>Please pay attention to the health of your FOX:)</p>
+    <form th:action="@{'/nutritionStore'}" th:method="post">
+        <!--<label for="food">Food</label>
+        <select name="selectedFood" id="food">
+            <option th:each="food : ${foods}"
+                    th:value="${food.name}"
+                    th:text="${food.name}"
+                    th:selected="${food.getIsSelected() == true}">
+                <select>
+            <option th:each="state : ${T(com.mypackage.Ticket.State).values()}"
+                    th:value="${state}"
+                    th:text="${state}">
+            </option>
+        </select>-->
+
+        </select>
+        <label for="drink">Drink</label>
+        <select name="selectedDrink" id="drink">
+           <option>Water</option>
+           <option>Milk</option>
+        </select>
+        <button type="submit">Change</button>
+    </form>
+</main>
+
+</body>
+</html>

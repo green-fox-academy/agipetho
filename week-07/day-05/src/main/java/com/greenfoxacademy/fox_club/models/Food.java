@@ -1,9 +1,11 @@
 package com.greenfoxacademy.fox_club.models;
 
 public enum Food {
-HAMBURGER,
-  PIZZA,
   CURRY,
-  TACO,
+  HAMBURGER,
   PASTA,
+  PIZZA,
+  SALAD,
+  TACO,
+  YOGURT
 }
