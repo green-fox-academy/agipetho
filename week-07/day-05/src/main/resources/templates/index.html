@@ -8,10 +8,10 @@
 <body>
 <header>
     <u1>
-        <li><a href="/">Information</a></li>
-        <li><a href="/">Nutrition Store</a></li>
-        <li><a href="/">Trick Center</a></li>
-        <li><a href="/">Action history</a></li>
+        <li><a th:href="@{'/?name=' + ${name}}">Information</a></li>
+        <li><a th:href="@{'/nutritionStore/?name=' + ${name}}">Nutrition Store</a></li>
+        <li><a href="/login">Trick Center</a></li>
+        <li><a href="/login">Action history</a></li>
     </u1>
 <p></p>
 <div>
@@ -21,16 +21,16 @@
 <p></p>
 <main>
     <div>
-        This is (name, default!). Currently living on (food) and (drink). He/she knows (list size) trick(s).
     <h2>This is
-    <span th:text="${name}"></span> . Currently living on (food) and (drink).
-        He/she knows (list size) trick(s).
+    <span th:text="${name}"></span> . Currently living on
+        <span th:text="${selectedFox.getFood()}"></span> and <span th:text="${selectedFox.getDrink()}"></span>.
+        I don't know yet how many tricks he/she knows:(
     </h2>
     <h2> Known tricks </h2>
     <ul>
-        <li>Coffee</li>
-        <li>Tea</li>
-        <li>..</li>
+        <li>Trick1</li>
+        <li>Trick2</li>
+        <li>Trick3</li>
     </ul>
     </div>
 </main>

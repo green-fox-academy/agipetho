@@ -23,7 +23,7 @@
             <option th:each="food : ${T(com.greenfoxacademy.fox_club.models.Food).values()}"
                     th:value="${food}"
                     th:text="${food}"
-                    th:selected="${food==PIZZA}">
+                    th:selected="${selectedFox.getFood()} == ${food}">
             </option>
         </select>
         </select>
@@ -32,7 +32,7 @@
             <option th:each="drink : ${T(com.greenfoxacademy.fox_club.models.Drink).values()}"
                     th:value="${drink}"
                     th:text="${drink}"
-                    th:selected="${drink==MILK}">
+                    th:selected="${selectedFox.getDrink()} == ${drink}">
             </option>
         </select>
         </select>
