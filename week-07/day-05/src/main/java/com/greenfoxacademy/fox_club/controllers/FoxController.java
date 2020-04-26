@@ -1,5 +1,7 @@
 package com.greenfoxacademy.fox_club.controllers;
 
+import com.greenfoxacademy.fox_club.models.Drink;
+import com.greenfoxacademy.fox_club.models.Food;
 import com.greenfoxacademy.fox_club.services.FoxService;
 import com.greenfoxacademy.fox_club.services.NutritionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping
+
 public class FoxController {
 
   private NutritionService nutritionService;
@@ -26,5 +28,15 @@ public class FoxController {
     model.addAttribute("foods", nutritionService.getListOfFoods());
     model.addAttribute("drinks", nutritionService.getListOfDrinks());
     return "nutrition";
+  }
+
+  @PostMapping("/nutritionStore")
+  public String changeNutritionInfo(@RequestParam String name,
+                                    Food selectedFood,
+                                    Drink selectedDrink) {
+    foxService.getFox(name).getName();
+    foxService.getFox(name).setDrink(selectedDrink);
+    foxService.getFox(name).setFood(selectedFood);
+    return "redirect:/?name=" + name;
   }
 }
