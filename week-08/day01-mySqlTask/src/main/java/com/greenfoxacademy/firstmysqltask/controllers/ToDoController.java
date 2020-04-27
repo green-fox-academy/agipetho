@@ -1,12 +1,17 @@
 package com.greenfoxacademy.firstmysqltask.controllers;
 
+import com.greenfoxacademy.firstmysqltask.models.ToDo;
 import com.greenfoxacademy.firstmysqltask.repositories.ToDoRepository;
+import com.sun.tools.javac.comp.Todo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping (value = "/")
@@ -18,13 +23,11 @@ public class ToDoController {
     this.repository = repository;
   }
 
-  /*
-  In the list method of the Controller use the repository to find all elements
-   and add them to the model as "todos" attribute
-   */
-  @GetMapping({"/", "/list"})
+  @GetMapping({"/", "/list", "/list"})
   public String list(Model model) {
-    model.addAttribute("todos",repository.findAll());
+    List<ToDo> activeTodos= new ArrayList<>();
+    repository.findAll().forEach(activeTodos::add);
+    model.addAttribute("todolist", activeTodos.stream().filter(todo -> !todo.isDone()).collect(Collectors.toList()));
     return "todolist";
   }
 }
