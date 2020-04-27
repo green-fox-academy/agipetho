@@ -10,7 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-
+@RequestMapping
 public class FoxController {
 
   private NutritionService nutritionService;
@@ -24,6 +24,7 @@ public class FoxController {
 
   @GetMapping("/nutritionStore")
   public String getNutritionInfo(@RequestParam String name, Model model) {
+    model.addAttribute("name", name);
     model.addAttribute("selectedFox", foxService.getFox(name));
     model.addAttribute("foods", nutritionService.getListOfFoods());
     model.addAttribute("drinks", nutritionService.getListOfDrinks());
@@ -34,7 +35,6 @@ public class FoxController {
   public String changeNutritionInfo(@RequestParam String name,
                                     Food selectedFood,
                                     Drink selectedDrink) {
-    foxService.getFox(name).getName();
     foxService.getFox(name).setDrink(selectedDrink);
     foxService.getFox(name).setFood(selectedFood);
     return "redirect:/?name=" + name;
