@@ -33,5 +33,4 @@ public class NutritionService {
     this.listOfDrinks = listOfDrinks;
   }
 
-  //public
 }
