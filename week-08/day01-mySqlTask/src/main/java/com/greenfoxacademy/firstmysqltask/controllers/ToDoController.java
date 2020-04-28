@@ -27,7 +27,7 @@ public class ToDoController {
   public String list(Model model) {
     List<ToDo> activeTodos= new ArrayList<>();
     repository.findAll().forEach(activeTodos::add);
-    model.addAttribute("todolist", activeTodos.stream().filter(todo -> !todo.isDone()).collect(Collectors.toList()));
+    model.addAttribute("todos", activeTodos.stream().filter(todo -> !todo.isDone()).collect(Collectors.toList()));
     return "todolist";
   }
 }
