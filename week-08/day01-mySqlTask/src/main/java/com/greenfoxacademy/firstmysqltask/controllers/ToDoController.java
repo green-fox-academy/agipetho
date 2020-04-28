@@ -23,11 +23,14 @@ public class ToDoController {
     this.repository = repository;
   }
 
-  @GetMapping({"/", "/list", "/list"})
+  @GetMapping({"/", "/list"})
   public String list(Model model) {
     List<ToDo> activeTodos= new ArrayList<>();
     repository.findAll().forEach(activeTodos::add);
-    model.addAttribute("todos", activeTodos.stream().filter(todo -> !todo.isDone()).collect(Collectors.toList()));
+    List<ToDo> activeTodos2 =activeTodos.stream()
+        .filter(todo -> !todo.isDone())
+        .collect(Collectors.toList());
+    model.addAttribute("todos", activeTodos2);
     return "todolist";
   }
 }
