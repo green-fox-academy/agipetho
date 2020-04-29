@@ -9,11 +9,18 @@ public class Article {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long id;
+
   private long numberOfVotes;
   private String title;
   private String url;
 
-  public Article() {
+  public Article(long numberOfVotes, String title, String url) {
+    this.title = title;
+    this.url = url;
+  }
+
+  public Article(){
+
   }
 
   public long getId() {
