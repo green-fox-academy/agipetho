@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 
 @Controller
-
 public class MainController {
   private ArticleServiceImpl articleService;
 
@@ -41,6 +40,7 @@ public class MainController {
                      @RequestParam long id,
                      Model model) {
     articleService.countVotes(vote, id);
+    articleService.sortArticleByVotes();
     return "redirect:/reddit";
   }
 }

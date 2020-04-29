@@ -5,6 +5,7 @@ import com.greenfoxacademy.redditapp.repositories.ArticleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -52,4 +53,8 @@ public class ArticleServiceImpl implements ArticleService {
     }
   }
 
+  @Override
+  public List<Article> sortArticleByVotes() {
+    return articleRepository.findAllByOrderByNumberOfVotes();
+  }
 }
