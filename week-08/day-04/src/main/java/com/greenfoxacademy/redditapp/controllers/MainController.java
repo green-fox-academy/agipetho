@@ -18,7 +18,7 @@ public class MainController {
   }
 
   @PostMapping ("/submit")
-  public String submitPost(){
-    return "submit";
+  public String submitPost(@RequestParam String title, String url){
+      return "redirect:/";
   }
 }
