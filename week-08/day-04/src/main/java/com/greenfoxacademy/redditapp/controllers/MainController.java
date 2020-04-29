@@ -1,13 +1,15 @@
 package com.greenfoxacademy.redditapp.controllers;
 
+import com.greenfoxacademy.redditapp.models.Article;
 import com.greenfoxacademy.redditapp.services.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 
 @Controller
-@RequestMapping
+
 public class MainController {
   private ArticleService articleService;
 
@@ -16,18 +18,21 @@ public class MainController {
     this.articleService = articleservice;
   }
 
-  @GetMapping("/")
-  public String test() {
+  @GetMapping("reddit")
+  public String listArticles(Model model) {
+    model.addAttribute("articles", articleService.getArticles());
     return "index";
   }
 
-  @GetMapping("/submit")
-  public String getSubmitPage() {
+  @GetMapping("reddit/submit")
+  public String getSubmitPage(Model model) {
+    model.addAttribute("newArticle", new Article());
     return "submit";
   }
 
-  @PostMapping("/submit")
-  public String submitPost(@RequestParam String title, String url) {
-    return "redirect:/";
+  @PostMapping("reddit/submit")
+  public String submitPost(@ModelAttribute Article article, Model model) {
+    articleService.addArticle(article);
+    return "redirect:/reddit";
   }
 }

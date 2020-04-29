@@ -10,7 +10,7 @@
     <br>
     <nav>
     <u1>
-        <a href="/submit">Submit new post</a>
+        <a href="/reddit/submit">Submit new post</a>
     </u1>
     </nav>
 <br>
@@ -25,8 +25,11 @@
         <th>Downgrade</th>
         <th>Title</th>
     </tr>
-    <tr>
-    ....
+    <tr th:each="article : ${articles}" th:object="${article}">
+        <td th:text="${article.numberOfVotes}" ></td>
+        <td text="+"></td>
+        <td text="-"></td>
+        <td th:text="${article.title}"></td>
     </tr>
 </table>
 </body>
