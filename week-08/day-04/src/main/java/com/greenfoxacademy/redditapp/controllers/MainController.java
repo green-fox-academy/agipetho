@@ -1,7 +1,7 @@
 package com.greenfoxacademy.redditapp.controllers;
 
 import com.greenfoxacademy.redditapp.models.Article;
-import com.greenfoxacademy.redditapp.services.ArticleService;
+import com.greenfoxacademy.redditapp.services.ArticleServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 
 public class MainController {
-  private ArticleService articleService;
+  private ArticleServiceImpl articleService;
 
   @Autowired
-  public MainController(ArticleService articleservice) {
+  public MainController(ArticleServiceImpl articleservice) {
     this.articleService = articleservice;
   }
 
@@ -33,6 +33,14 @@ public class MainController {
   @PostMapping("reddit/submit")
   public String submitPost(@ModelAttribute Article article, Model model) {
     articleService.addArticle(article);
+    return "redirect:/reddit";
+  }
+
+  @GetMapping("/reddit/vote")
+  public String vote(@RequestParam String vote,
+                     @RequestParam long id,
+                     Model model) {
+    articleService.countVotes(vote, id);
     return "redirect:/reddit";
   }
 }
