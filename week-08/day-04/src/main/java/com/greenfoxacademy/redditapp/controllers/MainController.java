@@ -1,13 +1,24 @@
 package com.greenfoxacademy.redditapp.controllers;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
+@RequestMapping
 public class MainController {
 
-  @GetMapping
+  @GetMapping ("/")
   public String test(){
     return "index";
+  }
+
+  @GetMapping ("/submit")
+  public String getSubmitPage(){
+    return "submit";
+  }
+
+  @PostMapping ("/submit")
+  public String submitPost(){
+    return "submit";
   }
 }
