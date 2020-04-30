@@ -24,6 +24,7 @@
         <th>Vote it up!</th>
         <th>Vote it down!</th>
         <th>Title</th>
+        <th>Date</th>
     </tr>
     <tbody>
     <tr th:each="article : ${articles}" th:object="${article}">
@@ -31,6 +32,7 @@
         <td><a th:href="@{'/reddit/vote/?vote=up&id=' + ${article.id}}">+</a></td>
         <td><a th:href="@{'/reddit/vote/?vote=down&id=' + ${article.id}}">-</a></td>
         <td><a th:href="${article.url}" target="blank" th:text="${article.title}"></a></td>
+        <td th:text="${article.date}"></td>
     </tr>
     </tbody>
 </table>
