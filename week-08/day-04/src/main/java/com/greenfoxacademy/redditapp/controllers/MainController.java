@@ -19,6 +19,7 @@ public class MainController {
 
   @GetMapping("reddit")
   public String listArticles(Model model) {
+    articleService.sortArticleByVotes();
     model.addAttribute("articles", articleService.getArticles());
     return "index";
   }
@@ -40,7 +41,6 @@ public class MainController {
                      @RequestParam long id,
                      Model model) {
     articleService.countVotes(vote, id);
-    articleService.sortArticleByVotes();
     return "redirect:/reddit";
   }
 }

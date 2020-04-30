@@ -55,6 +55,6 @@ public class ArticleServiceImpl implements ArticleService {
 
   @Override
   public List<Article> sortArticleByVotes() {
-    return articleRepository.findAllByOrderByNumberOfVotes();
+    return articleRepository.getAllByOrderByNumberOfVotes();
   }
 }
