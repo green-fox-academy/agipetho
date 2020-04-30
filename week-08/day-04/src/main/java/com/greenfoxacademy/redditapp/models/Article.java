@@ -1,6 +1,9 @@
 package com.greenfoxacademy.redditapp.models;
 
+import org.springframework.data.annotation.CreatedDate;
+
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "reddit_articles")
@@ -14,14 +17,18 @@ public class Article {
   private String title;
   private String url;
 
-  public Article(String title, String url) {
+  @Temporal(TemporalType.DATE)
+  private Date date;
+
+  public Article(String title, String url, Date date) {
     this.title = title;
     this.url = url;
     numberOfVotes = 0;
+    this.date = new Date();
   }
 
-  public Article(){
-
+  public Article() {
+    this.date = new Date();
   }
 
   public long getId() {
