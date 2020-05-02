@@ -19,7 +19,8 @@ public class MainController {
   }
 
   @GetMapping("reddit")
-  public String listArticles(Model model) {
+  public String listArticles(Model model, String name) {
+    model.addAttribute("name", name);
     model.addAttribute("articles", articleService.sortArticleByVotes());
     return "index";
   }

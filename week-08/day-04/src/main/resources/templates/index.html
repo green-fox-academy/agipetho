@@ -10,7 +10,8 @@
     <br>
     <nav>
     <u1>
-        <a href="/reddit/submit">Submit new post</a>
+        <li><a th:href="@{'/reddit/submit/?name=' + ${name}}">Submit new post</a></li>
+        <li><a>Current user:  <span th:text="${name}"></span></a></li>
     </u1>
     </nav>
 <br>
