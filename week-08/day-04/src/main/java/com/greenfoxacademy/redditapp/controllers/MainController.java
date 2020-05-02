@@ -1,6 +1,7 @@
 package com.greenfoxacademy.redditapp.controllers;
 
 import com.greenfoxacademy.redditapp.models.Article;
+import com.greenfoxacademy.redditapp.models.User;
 import com.greenfoxacademy.redditapp.services.ArticleServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -42,4 +43,15 @@ public class MainController {
     articleService.countVotes(vote, id);
     return "redirect:/reddit";
   }
+
+  @GetMapping("reddit/login")
+  public String getLoginPage() {
+    return "login";
+  }
+
+  @PostMapping("reddit/login")
+  public String getUserLogin(@RequestParam String name, Model model) {
+    return "redirect:/reddit/?name=" + name;
+  }
+
 }

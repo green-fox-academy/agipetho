@@ -28,6 +28,10 @@ public class Article {
   @Temporal(TemporalType.DATE)
   private Date date;
 
+  @ManyToOne(fetch = FetchType.EAGER)
+  @JoinColumn
+  private User user;
+
   public Article(String title, String url, Date date) {
     this.title = title;
     this.url = url;
