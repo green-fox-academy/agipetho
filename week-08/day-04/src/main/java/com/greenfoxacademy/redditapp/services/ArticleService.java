@@ -8,8 +8,10 @@ import java.util.List;
 @Service
 public interface ArticleService {
 
-  public void addArticle(Article article);
-  public Iterable <Article> getArticles();
-  public void countVotes(String vote, long id);
-  public List<Article> sortArticleByVotes();;
+   void addArticle(Article article);
+   Article findById(Long id);
+   Iterable <Article> getArticles();
+   void countVotes(String vote, long id);
+   List<Article> sortArticleByVotes();
+   void addUserToArticle(Long userId, Long articleId);
 }

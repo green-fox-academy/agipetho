@@ -32,6 +32,14 @@ public class Article {
   @JoinColumn
   private User user;
 
+  public User getUser() {
+    return user;
+  }
+
+  public void setUser(User user) {
+    this.user = user;
+  }
+
   public Article(String title, String url, Date date) {
     this.title = title;
     this.url = url;
