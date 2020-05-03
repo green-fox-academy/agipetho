@@ -15,6 +15,8 @@
     <label>Url</label><br>
     <input type="text" th:field="*{url}"  placeholder="type a url for your post..."><br>
 
+    <label>Current user</label><br>
+    <input type="hidden" name= "user" th:value="${name}"><br>
     <button type="submit">Submit</button>
 
 </form>

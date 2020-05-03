@@ -11,6 +11,7 @@ import java.util.List;
 public interface UserService {
   Iterable<Article> getArticlesForOneUser();
   User findByID(Long id);
+  User findByName(String name);
   List<User> returnAllUsers();
   void addArticleToUser(Article article, User user);
 }

@@ -40,7 +40,7 @@ public class Article {
     this.user = user;
   }
 
-  public Article(String title, String url, Date date) {
+  public Article(String title, String url) {
     this.title = title;
     this.url = url;
     numberOfVotes = 0;
