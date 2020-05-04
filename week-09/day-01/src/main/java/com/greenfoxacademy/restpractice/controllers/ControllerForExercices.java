@@ -71,6 +71,7 @@ if no number is provided:
 package com.greenfoxacademy.restpractice.controllers;
 
 import com.greenfoxacademy.restpractice.models.Doubling;
+import com.greenfoxacademy.restpractice.models.Greeting;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -95,10 +96,37 @@ public class ControllerForExercices {
     return ResponseEntity.ok(doubling);
   }
 
+
   @GetMapping("/greeter")
-  public String greeter(@RequestParam String input) {
-    return input;
+  public ResponseEntity<?> greeter(@RequestParam (required = false)String name,
+                                   @RequestParam (required = false)String title) {
+    if (name == null && title == null){
+      return ResponseEntity.badRequest().body(new Error("Please provide a name and a title!"));
+    } else if(name == null){
+      return ResponseEntity.badRequest().body(new Error("Please provide a name!"));
+    }else if(title == null) {
+      return ResponseEntity.badRequest().body(new Error("Please provide a title!"));
+    }else {
+      Greeting greeting = new Greeting(name, title);
+      return ResponseEntity.ok(greeting.getMessage());
+    }
   }
+  /*
+    @GetMapping("/greeter")
+  public ResponseEntity<?> getWelcomeMessage(@RequestParam(required = false) String name,
+                                             @RequestParam(required = false) String title) {
+    if (name == null && title == null) {
+      return ResponseEntity.badRequest().body(new Error("Please provide a name and a title!"));
+    } else if (name == null) {
+      return ResponseEntity.badRequest().body(new Error("Please provide a name!"));
+    } else if (title == null) {
+      return ResponseEntity.badRequest().body(new Error("Please provide a title!"));
+    }
+    WelcomeMessage welcomeMessage = new WelcomeMessage(name, title);
+    logService.addNewLogEntry(new LogEntry("/greeter", welcomeMessage));
+    return ResponseEntity.ok(welcomeMessage);
+  }
+   */
 
   @GetMapping("/appenda/{appendable}")
   public String appendA(@PathVariable String appendable) {
