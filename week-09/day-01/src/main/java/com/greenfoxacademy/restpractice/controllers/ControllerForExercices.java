@@ -70,9 +70,13 @@ if no number is provided:
 
 package com.greenfoxacademy.restpractice.controllers;
 
+import com.greenfoxacademy.restpractice.models.Doubling;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @RestController
@@ -81,9 +85,14 @@ public class ControllerForExercices {
   public ControllerForExercices() {
   }
 
+
   @GetMapping("/doubling")
-  public int doubling(@RequestParam int input) {
-    return input * 2;
+  public ResponseEntity <?> doubling(@RequestParam (required = false) Integer input) {
+    if (input == null){
+      return ResponseEntity.ok(new Error("Please provide an input."));
+    }
+    Doubling doubling = new Doubling(input);
+    return ResponseEntity.ok(doubling);
   }
 
   @GetMapping("/greeter")
@@ -98,12 +107,12 @@ public class ControllerForExercices {
   }
 
   @PostMapping("/dountil/{action}")
-  public int doUntil(@PathVariable String action, Integer input) {
+  public int doUntil(@PathVariable String action, @RequestParam Integer input) {
     if (action.equals("sum")) {
-      if (input%2 ==0) {
+      if (input % 2 == 0) {
         return (input / 2) * (input + 1);
       } else {
-        return (input + (input-1) / 2) * input;
+        return (input + (input - 1) / 2) * input;
       }
     }
 
