@@ -27,6 +27,8 @@ if any of the data is missing, respond with one of the following error messages 
  */
 package com.greenfoxacademy.restpractice.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Greeting {
   private String name;
   private String title;
@@ -38,7 +40,7 @@ public class Greeting {
   public void setMessage(String message) {
     this.message = message;
   }
-
+@JsonProperty("welcome_message")
   private String message;
 
   public Greeting(String name, String title) {

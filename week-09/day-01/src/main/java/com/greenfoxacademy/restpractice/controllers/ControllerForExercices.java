@@ -70,10 +70,8 @@ if no number is provided:
 
 package com.greenfoxacademy.restpractice.controllers;
 
-import com.greenfoxacademy.restpractice.models.Append;
-import com.greenfoxacademy.restpractice.models.Doubling;
+import com.greenfoxacademy.restpractice.models.*;
 import com.greenfoxacademy.restpractice.models.Error;
-import com.greenfoxacademy.restpractice.models.Greeting;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -81,6 +79,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -94,7 +93,7 @@ public class ControllerForExercices {
   public ResponseEntity<?> doubling(@RequestParam(required = false) Integer input) {
     if (input == null) {
       return ResponseEntity.ok(new Error("Please provide an input!"));
-    }else {
+    } else {
       Doubling doubling = new Doubling(input);
       return ResponseEntity.ok(doubling);
     }
@@ -112,7 +111,7 @@ public class ControllerForExercices {
       return ResponseEntity.badRequest().body(new Error("Please provide a title!"));
     } else {
       Greeting greeting = new Greeting(name, title);
-      return ResponseEntity.ok(greeting.getMessage());
+      return ResponseEntity.ok(greeting);
     }
   }
 
@@ -120,29 +119,17 @@ public class ControllerForExercices {
   public ResponseEntity<?> appenda(@PathVariable String appendable) {
     if (appendable == null) {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }else{
+    } else {
       Append append = new Append(appendable);
-      return ResponseEntity.ok(append.getAppended());
+      return ResponseEntity.ok(append);
     }
   }
 
-//  @PostMapping("/dountil/{action}")
-//  public int doUntil(@PathVariable String action, @RequestParam Integer input) {
-//    if (action.equals("sum")) {
-//      if (input % 2 == 0) {
-//        return (input / 2) * (input + 1);
-//      } else {
-//        return (input + (input - 1) / 2) * input;
-//      }
-//    }
-//
-//    if (action.equals("factor")) {
-//      int a = 1;
-//      for (int i = 1; i <= input; i++) {
-//        a *= i;
-//      }
-//      return a;
-//    }
-//    return 0;
-//  }
+  @PostMapping("/dountil/{action}")
+  public ResponseEntity<?> doUntil(@RequestBody (required = false) DoUntil doUntil  ,//ahol van Integer field
+                                   @PathVariable String action) {
+
+      return ResponseEntity.badRequest().body(new Error("Please provide a number!"));
+    //hibaellenorzes: dountil van-e vagy nem
+  }
 }
