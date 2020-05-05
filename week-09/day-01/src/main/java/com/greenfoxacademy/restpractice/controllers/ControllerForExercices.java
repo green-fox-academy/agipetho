@@ -112,22 +112,6 @@ public class ControllerForExercices {
       return ResponseEntity.ok(greeting.getMessage());
     }
   }
-  /*
-    @GetMapping("/greeter")
-  public ResponseEntity<?> getWelcomeMessage(@RequestParam(required = false) String name,
-                                             @RequestParam(required = false) String title) {
-    if (name == null && title == null) {
-      return ResponseEntity.badRequest().body(new Error("Please provide a name and a title!"));
-    } else if (name == null) {
-      return ResponseEntity.badRequest().body(new Error("Please provide a name!"));
-    } else if (title == null) {
-      return ResponseEntity.badRequest().body(new Error("Please provide a title!"));
-    }
-    WelcomeMessage welcomeMessage = new WelcomeMessage(name, title);
-    logService.addNewLogEntry(new LogEntry("/greeter", welcomeMessage));
-    return ResponseEntity.ok(welcomeMessage);
-  }
-   */
 
   @GetMapping("/appenda/{appendable}")
   public String appendA(@PathVariable String appendable) {
