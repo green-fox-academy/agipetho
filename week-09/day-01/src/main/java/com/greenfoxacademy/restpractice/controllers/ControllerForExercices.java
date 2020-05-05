@@ -70,9 +70,11 @@ if no number is provided:
 
 package com.greenfoxacademy.restpractice.controllers;
 
+import com.greenfoxacademy.restpractice.models.Append;
 import com.greenfoxacademy.restpractice.models.Doubling;
 import com.greenfoxacademy.restpractice.models.Error;
 import com.greenfoxacademy.restpractice.models.Greeting;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -89,53 +91,58 @@ public class ControllerForExercices {
 
 
   @GetMapping("/doubling")
-  public ResponseEntity <?> doubling(@RequestParam (required = false) Integer input) {
-    if (input == null){
+  public ResponseEntity<?> doubling(@RequestParam(required = false) Integer input) {
+    if (input == null) {
       return ResponseEntity.ok(new Error("Please provide an input!"));
+    }else {
+      Doubling doubling = new Doubling(input);
+      return ResponseEntity.ok(doubling);
     }
-    Doubling doubling = new Doubling(input);
-    return ResponseEntity.ok(doubling);
   }
 
 
   @GetMapping("/greeter")
-  public ResponseEntity<?> greeter(@RequestParam (required = false)String name,
-                                   @RequestParam (required = false)String title) {
-    if (name == null && title == null){
+  public ResponseEntity<?> greeter(@RequestParam(required = false) String name,
+                                   @RequestParam(required = false) String title) {
+    if (name == null && title == null) {
       return ResponseEntity.badRequest().body(new Error("Please provide a name and a title!"));
-    } else if(name == null){
+    } else if (name == null) {
       return ResponseEntity.badRequest().body(new Error("Please provide a name!"));
-    }else if(title == null) {
+    } else if (title == null) {
       return ResponseEntity.badRequest().body(new Error("Please provide a title!"));
-    }else {
+    } else {
       Greeting greeting = new Greeting(name, title);
       return ResponseEntity.ok(greeting.getMessage());
     }
   }
 
   @GetMapping("/appenda/{appendable}")
-  public String appendA(@PathVariable String appendable) {
-    String appended = appendable + "a";
-    return appended;
+  public ResponseEntity<?> appenda(@PathVariable String appendable) {
+    if (appendable == null) {
+      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }else{
+      Append append = new Append(appendable);
+      return ResponseEntity.ok(append.getAppended());
+    }
   }
 
-  @PostMapping("/dountil/{action}")
-  public int doUntil(@PathVariable String action, @RequestParam Integer input) {
-    if (action.equals("sum")) {
-      if (input % 2 == 0) {
-        return (input / 2) * (input + 1);
-      } else {
-        return (input + (input - 1) / 2) * input;
-      }
-    }
-
-    if (action.equals("factor")) {
-      int a = 1;
-      for (int i = 1; i <= input; i++) {
-        a *= i;
-      }
-      return a;
-    }
-    return 0;
-  }
+//  @PostMapping("/dountil/{action}")
+//  public int doUntil(@PathVariable String action, @RequestParam Integer input) {
+//    if (action.equals("sum")) {
+//      if (input % 2 == 0) {
+//        return (input / 2) * (input + 1);
+//      } else {
+//        return (input + (input - 1) / 2) * input;
+//      }
+//    }
+//
+//    if (action.equals("factor")) {
+//      int a = 1;
+//      for (int i = 1; i <= input; i++) {
+//        a *= i;
+//      }
+//      return a;
+//    }
+//    return 0;
+//  }
 }
