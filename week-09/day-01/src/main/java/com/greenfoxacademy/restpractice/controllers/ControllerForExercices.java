@@ -72,7 +72,6 @@ package com.greenfoxacademy.restpractice.controllers;
 
 import com.greenfoxacademy.restpractice.models.*;
 import com.greenfoxacademy.restpractice.models.Error;
-import com.greenfoxacademy.restpractice.services.DoUntilService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -80,10 +79,8 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class ControllerForExercices {
-  DoUntilService doUntilService;
 
-  public ControllerForExercices(DoUntilService doUntilService) {
-    this.doUntilService = doUntilService;
+  public ControllerForExercices() {
   }
 
   @GetMapping("/doubling")
@@ -128,4 +125,10 @@ public class ControllerForExercices {
     return ResponseEntity.ok().body(new DoUntilResult(action, doUntilRequest.getUntil())); //return ResponseEntity.ok(doUntil());
         //TODO: hibaellenorzes: dountil van-e vagy nem
   }
+
+//  @PostMapping("/arrays")
+//  public ResponseEntity<?> arrayHandler(@RequestBody (required = false) Array array){
+//
+//    return ResponseEntity.ok().body()
+//  }
 }
