@@ -71,6 +71,7 @@ if no number is provided:
 package com.greenfoxacademy.restpractice.controllers;
 
 import com.greenfoxacademy.restpractice.models.Doubling;
+import com.greenfoxacademy.restpractice.models.Error;
 import com.greenfoxacademy.restpractice.models.Greeting;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -90,7 +91,7 @@ public class ControllerForExercices {
   @GetMapping("/doubling")
   public ResponseEntity <?> doubling(@RequestParam (required = false) Integer input) {
     if (input == null){
-      return ResponseEntity.ok(new Error("Please provide an input."));
+      return ResponseEntity.ok(new Error("Please provide an input!"));
     }
     Doubling doubling = new Doubling(input);
     return ResponseEntity.ok(doubling);
