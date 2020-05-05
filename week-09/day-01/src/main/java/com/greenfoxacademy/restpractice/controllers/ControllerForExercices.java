@@ -72,22 +72,19 @@ package com.greenfoxacademy.restpractice.controllers;
 
 import com.greenfoxacademy.restpractice.models.*;
 import com.greenfoxacademy.restpractice.models.Error;
+import com.greenfoxacademy.restpractice.services.DoUntilService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-
 
 @RestController
 public class ControllerForExercices {
+  DoUntilService doUntilService;
 
-  public ControllerForExercices() {
+  public ControllerForExercices(DoUntilService doUntilService) {
+    this.doUntilService = doUntilService;
   }
-
 
   @GetMapping("/doubling")
   public ResponseEntity<?> doubling(@RequestParam(required = false) Integer input) {
@@ -126,10 +123,9 @@ public class ControllerForExercices {
   }
 
   @PostMapping("/dountil/{action}")
-  public ResponseEntity<?> doUntil(@RequestBody (required = false) DoUntil doUntil  ,//ahol van Integer field
-                                   @PathVariable String action) {
-
-      return ResponseEntity.badRequest().body(new Error("Please provide a number!"));
-    //hibaellenorzes: dountil van-e vagy nem
+  public ResponseEntity<?> doUntil(@PathVariable String action,
+                                   @RequestBody(required = false) DoUntilRequest doUntilRequest) {
+    return ResponseEntity.ok().body(new DoUntilResult(action, doUntilRequest.getUntil())); //return ResponseEntity.ok(doUntil());
+        //TODO: hibaellenorzes: dountil van-e vagy nem
   }
 }
