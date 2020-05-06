@@ -128,7 +128,7 @@ public class ControllerForExercices {
 
   @PostMapping("/arrays")
   public ResponseEntity<?> arrayHandler(@RequestBody(required = false) InputArray inputarray) {
-    if (inputarray.getWhat() != null && inputarray.getNumbers() != null ) {
+    if (inputarray != null && inputarray.getWhat() != null && inputarray.getNumbers() != null ) {
       if (inputarray.getWhat().equals("double")){
         return ResponseEntity.ok().body(new ResultArray(inputarray.getNumbers()));
       } else {
@@ -137,4 +137,13 @@ public class ControllerForExercices {
     }
     return ResponseEntity.badRequest().body(new Error("Please provide what to do with the numbers!"));
   }
+
+//  @GetMapping("/log")
+//  public ResponseEntity<?> log() {
+//    if (9==9) {
+//      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//    } else {
+//      return ResponseEntity.ok("ok");
+//    }
+//  }
 }

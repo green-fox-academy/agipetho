@@ -7,7 +7,7 @@ public class ResultInt {
 
   private int result;
 
-  public ResultInt (String what, int[] numbers) {
+  public ResultInt(String what, int[] numbers) {
     switch (what) {
       case "sum":
         result = sumFunction(numbers);
@@ -21,13 +21,11 @@ public class ResultInt {
   }
 
   public int sumFunction(int[] numbers) {
-    IntStream intStream = Arrays.stream(numbers);
-    return intStream.sum();
+    return Arrays.stream(numbers).sum();
   }
 
   public int multiplyFunction(int[] numbers) {
-    IntStream intStream = Arrays.stream(numbers);
-    return intStream.reduce(1, (a, b) -> a * b);
+    return Arrays.stream(numbers).reduce(1, (a, b) -> a * b);
   }
 
   public int getResult() {
