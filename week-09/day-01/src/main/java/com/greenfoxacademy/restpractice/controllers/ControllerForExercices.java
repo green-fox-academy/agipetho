@@ -122,7 +122,7 @@ public class ControllerForExercices {
   @PostMapping("/dountil/{action}")
   public ResponseEntity<?> doUntil(@PathVariable String action,
                                    @RequestBody(required = false) DoUntilRequest doUntilRequest) {
-    return ResponseEntity.ok().body(new DoUntilResult(action, doUntilRequest.getUntil())); //return ResponseEntity.ok(doUntil());
+    return ResponseEntity.ok().body(new DoUntilResult(action, doUntilRequest.getUntil()));
     //TODO: hibaellenorzes: dountil van-e vagy nem
   }
 
