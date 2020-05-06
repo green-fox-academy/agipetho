@@ -7,45 +7,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class Array {
+public class InputArray {
 
   private String what;
   private int[] numbers;
-  private int result;
 
-
-  public Array(String what, int[] numbers) {
+  public InputArray(String what, int[] numbers) {
     this.what = what;
     this.numbers = numbers;
   }
 
-  public int manipulateArray() {
-    switch (this.what) {
-      case "sum":
-        return sumFunction();
-      case "multiply":
-        return multiplyFunction();
-//      case "double":
-//        return doubleFunction();
-      default:
-        return 0;
-    }
-  }
-
-  public int sumFunction() {
-    IntStream intStream = Arrays.stream(numbers);
-    return intStream.sum();
-  }
-
-  public int multiplyFunction() {
-    IntStream intStream = Arrays.stream(numbers);
-    return intStream.reduce(1, (a, b) -> a * b);
-  }
-
-  public int[] doubleFunction() {
-    IntStream intStream = Arrays.stream(numbers);
-    return intStream.map(a -> 2 * a).toArray();
-  }
 
   public String getWhat() {
     return what;
@@ -61,14 +32,6 @@ public class Array {
 
   public void setNumbers(int[] numbers) {
     this.numbers = numbers;
-  }
-
-  public Integer getResult() {
-    return result;
-  }
-
-  public void setResult(Integer result) {
-    this.result = result;
   }
 }
 

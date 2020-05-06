@@ -13,5 +13,4 @@ public interface ArticleRepository extends CrudRepository<Article, Long> {
 
   @Query(value = "SELECT * FROM reddit_articles ORDER BY number_of_votes DESC", nativeQuery = true)
   List<Article> getAllByOrderByNumberOfVotes();
-
 }
