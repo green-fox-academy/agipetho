@@ -128,7 +128,7 @@ public class ControllerForExercices {
 
   @PostMapping("/arrays")
   public ResponseEntity<?> arrayHandler(@RequestBody(required = false) InputArray inputarray) {
-    if (inputarray != null) {
+    if (inputarray.getWhat() != null && inputarray.getNumbers() != null ) {
       if (inputarray.getWhat().equals("double")){
         return ResponseEntity.ok().body(new ResultArray(inputarray.getNumbers()));
       } else {
