@@ -17,14 +17,6 @@ public class Article {
   private String title;
   private String url;
 
-  public Date getDate() {
-    return date;
-  }
-
-  public void setDate(Date date) {
-    this.date = date;
-  }
-
   @Temporal(TemporalType.DATE)
   private Date date;
 
@@ -82,5 +74,11 @@ public class Article {
   public void setUrl(String url) {
     this.url = url;
   }
+  public Date getDate() {
+    return date;
+  }
 
+  public void setDate(Date date) {
+    this.date = date;
+  }
 }

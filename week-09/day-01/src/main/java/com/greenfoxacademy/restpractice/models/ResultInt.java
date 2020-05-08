@@ -7,6 +7,9 @@ public class ResultInt {
 
   private int result;
 
+  public ResultInt() {
+  }
+
   public ResultInt(String what, int[] numbers) {
     switch (what) {
       case "sum":
@@ -18,6 +21,9 @@ public class ResultInt {
       default:
         result = 0;
     }
+
+
+
   }
 
   public int sumFunction(int[] numbers) {

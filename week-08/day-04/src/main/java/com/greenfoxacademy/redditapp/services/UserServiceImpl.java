@@ -35,7 +35,11 @@ public class UserServiceImpl implements UserService {
 
   @Override
   public User findByName(String userName) {
-    return userRepository.getByUserName(userName);
+    if (userRepository.getByUserName(userName) != null) {
+      return userRepository.getByUserName(userName);
+    } else {
+      return null;
+    }
   }
 
   @Override
@@ -52,6 +56,11 @@ public class UserServiceImpl implements UserService {
     List<Article> articles = user.getArticles();
     articles.add(article);
     user.setArticles(articles);
+    userRepository.save(user);
+  }
+
+  @Override
+  public void addUser(User user) {
     userRepository.save(user);
   }
 }

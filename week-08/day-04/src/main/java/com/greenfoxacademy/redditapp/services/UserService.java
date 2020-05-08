@@ -14,4 +14,5 @@ public interface UserService {
   User findByName(String name);
   List<User> returnAllUsers();
   void addArticleToUser(Article article, User user);
+  void addUser(User user);
 }

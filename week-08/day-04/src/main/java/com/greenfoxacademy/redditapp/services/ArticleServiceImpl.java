@@ -21,6 +21,9 @@ public class ArticleServiceImpl implements ArticleService {
     this.userService = userService;
   }
 
+  public ArticleServiceImpl() {
+  }
+
   @Override
   public void addArticle(Article article) {
     articleRepository.save(article);
@@ -28,41 +31,33 @@ public class ArticleServiceImpl implements ArticleService {
 
   @Override
   public Article findById(Long id) {
-    Article article = new Article();
     if (articleRepository.findById(id).isPresent()) {
-      article = articleRepository.findById(id).get();
+      return articleRepository.findById(id).get();
+    } else {
+      return null;
     }
-    return article;
   }
 
-
+  @Override
   public Iterable<Article> getArticles() {
     return articleRepository.findAll();
   }
 
   @Override
   public void countVotes(String vote, long id) {
-    if (vote.equals("up")) {
-      Optional<Article> optionalArticle = articleRepository.findById(id);
-      if (optionalArticle.isPresent()) {
-        Article a = optionalArticle.get();
+    Optional<Article> optionalArticle = articleRepository.findById(id);
+    if (optionalArticle.isPresent()) {
+      Article a = optionalArticle.get();
+      if (vote.equals("up")) {
         a.setNumberOfVotes(a.getNumberOfVotes() + 1);
         articleRepository.save(a);
-      } else {
-        // do nothing
-      }
-    } else if (vote.equals("down")) {
-      Optional<Article> optionalArticle = articleRepository.findById(id);
-      if (optionalArticle.isPresent()) {
-        Article a = optionalArticle.get();
+      } else if (vote.equals("down")) {
         a.setNumberOfVotes(a.getNumberOfVotes() - 1);
         articleRepository.save(a);
-      } else {
-        // do nothing
       }
-    } else {
-      // do nothing
     }
+    //Comment: in the normal usage it is not possible to get it,
+    // in other circumstances we don't want to hande it so no 'else' is needed
   }
 
   @Override
