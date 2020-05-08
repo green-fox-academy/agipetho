@@ -36,8 +36,8 @@
         <td><a th:href="${article.url}" target="blank" th:text="${article.title}"></a></td>
         <td th:text="${article.date}"></td>
         <td>
-        <span th:if ="${article.getUser() == null}" >unknown</span>
-        <span th:if ="${article.getUser() != null}" ? th:text="${article.getUser().getUserName()}"></span>
+        <!--<span th:if ="${article.getUser() == null}" >unknown</span>-->
+        <span th:text="${article.user != null} ? ${article.user.userName} : 'unknown'"></span>
         </td>
     </tr>
     </tbody>

@@ -31,11 +31,7 @@ public class ArticleServiceImpl implements ArticleService {
 
   @Override
   public Article findById(Long id) {
-    if (articleRepository.findById(id).isPresent()) {
-      return articleRepository.findById(id).get();
-    } else {
-      return null;
-    }
+    return articleRepository.findById(id).orElse(null);
   }
 
   @Override
@@ -62,7 +58,7 @@ public class ArticleServiceImpl implements ArticleService {
 
   @Override
   public List<Article> sortArticleByVotes() {
-    return articleRepository.getAllByOrderByNumberOfVotes();
+    return articleRepository.findAllByOrderByNumberOfVotesDesc();
   }
 
   @Override

@@ -39,11 +39,7 @@ public class MainController {
   }
 
   @PostMapping("submit")
-  public String submitPost(@RequestParam String title,
-                           @RequestParam String url,
-                           @RequestParam String name,
-                           Model model) {
-    Article article = new Article(title, url);
+  public String submitPost(@ModelAttribute Article article, @RequestParam String name) {
     article.setUser(userService.findByName(name));
     articleService.addArticle(article);
     return "redirect:/reddit";
