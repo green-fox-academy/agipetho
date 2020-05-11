@@ -77,6 +77,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 public class ControllerForExercices {
@@ -150,5 +152,10 @@ public class ControllerForExercices {
   @GetMapping("/log")
   public ResponseEntity<?> log() {
     return ResponseEntity.ok().body(new LogResult(logService.getAllLogs()));
+  }
+
+  @GetMapping("/log2")
+  public List<Log> log2() {
+    return logService.getAllLogs();
   }
 }
