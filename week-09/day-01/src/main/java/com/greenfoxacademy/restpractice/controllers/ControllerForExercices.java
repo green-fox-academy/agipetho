@@ -153,9 +153,4 @@ public class ControllerForExercices {
   public ResponseEntity<?> log() {
     return ResponseEntity.ok().body(new LogResult(logService.getAllLogs()));
   }
-
-  @GetMapping("/log2")
-  public List<Log> log2() {
-    return logService.getAllLogs();
-  }
 }
