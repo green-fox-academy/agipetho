@@ -72,6 +72,7 @@ package com.greenfoxacademy.restpractice.controllers;
 
 import com.greenfoxacademy.restpractice.models.*;
 import com.greenfoxacademy.restpractice.models.Error;
+import com.greenfoxacademy.restpractice.services.LogService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -80,7 +81,10 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class ControllerForExercices {
 
-  public ControllerForExercices() {
+  LogService logService;
+
+  public ControllerForExercices(LogService logService) {
+    this.logService = logService;
   }
 
   @GetMapping("/doubling")
@@ -89,6 +93,7 @@ public class ControllerForExercices {
       return ResponseEntity.ok(new Error("Please provide an input!"));
     } else {
       Doubling doubling = new Doubling(input);
+      logService.addLog(new Log("/doubling", "?input=" + input));
       return ResponseEntity.ok(doubling);
     }
   }
@@ -105,6 +110,7 @@ public class ControllerForExercices {
       return ResponseEntity.badRequest().body(new Error("Please provide a title!"));
     } else {
       Greeting greeting = new Greeting(name, title);
+      logService.addLog(new Log("/greeter", "?name=" + name + "&title=" + title));
       return ResponseEntity.ok(greeting);
     }
   }
@@ -115,6 +121,7 @@ public class ControllerForExercices {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     } else {
       Append append = new Append(appendable);
+      logService.addLog(new Log("/appenda/" + appendable, "/appenda/" + appendable));
       return ResponseEntity.ok(append);
     }
   }
@@ -128,8 +135,9 @@ public class ControllerForExercices {
 
   @PostMapping("/arrays")
   public ResponseEntity<?> arrayHandler(@RequestBody(required = false) InputArray inputarray) {
-    if (inputarray != null && inputarray.getWhat() != null && inputarray.getNumbers() != null ) {
-      if (inputarray.getWhat().equals("double")){
+    if (inputarray != null && inputarray.getWhat() != null && inputarray.getNumbers() != null) {
+      if (inputarray.getWhat().equals("double")) {
+        logService.addLog(new Log("/arrays", inputarray.toString()));
         return ResponseEntity.ok().body(new ResultArray(inputarray.getNumbers()));
       } else {
         return ResponseEntity.ok().body(new ResultInt(inputarray.getWhat(), inputarray.getNumbers()));
@@ -138,12 +146,9 @@ public class ControllerForExercices {
     return ResponseEntity.badRequest().body(new Error("Please provide what to do with the numbers!"));
   }
 
-//  @GetMapping("/log")
-//  public ResponseEntity<?> log() {
-//    if (9==9) {
-//      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//    } else {
-//      return ResponseEntity.ok("ok");
-//    }
-//  }
+
+  @GetMapping("/log")
+  public ResponseEntity<?> log() {
+    return ResponseEntity.ok().body(new LogResult(logService.getAllLogs()));
+  }
 }

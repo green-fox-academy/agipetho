@@ -7,7 +7,9 @@ data - string
 package com.greenfoxacademy.restpractice.models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Log {
@@ -32,3 +34,5 @@ public class Log {
     this.createdAt = new Date();
   }
 }
+
+
