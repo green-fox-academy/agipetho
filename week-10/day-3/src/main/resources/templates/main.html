@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PetShelter App</title>
+</head>
+<body>
+<header>
+    <br>
+    <nav>
+        <u1>
+            <li></li>
+        </u1>
+    </nav>
+    <br>
+</header>
+
+<h2>Pet Shelter * Humans</h2>
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Age</th>
+    </tr>
+    <tbody>
+    <tr th:each="human: ${humans}" th:object="${human}">
+        <td th:text="${human.id}"></td>
+        <td th:text="${human.name}"></td>
+        <td th:text="${human.age}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<h2>Add new human:</h2>
+<form action="/add-human" method="post" th:object="${human}">
+        <label>Name</label>
+        <br>
+        <input type="text" th:field="*{name}">
+        <br>
+        <label>Age</label>
+        <br>
+        <input type="number" th:field="*{age}">
+        <br>
+        <button type="submit">Add</button>
+</form>
+</body>
+</html>
