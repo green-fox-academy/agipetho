@@ -23,9 +23,10 @@ public class PetShelterController {
   @GetMapping("/list-humans")
   public String getListOfHumans(Model model) {
     model.addAttribute("humans", humanService.getAllHumans());
+    model.addAttribute("human", new Human());
     return "main";
   }
-  
+
   @PostMapping("/add-human")
   public String addHuman(@ModelAttribute Human human) {
     humanService.addHuman(human);
