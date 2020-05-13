@@ -6,15 +6,6 @@
     <title>PetShelter App</title>
 </head>
 <body>
-<header>
-    <br>
-    <nav>
-        <u1>
-            <li></li>
-        </u1>
-    </nav>
-    <br>
-</header>
 
 <h2>Pet Shelter * Humans</h2>
 
@@ -44,6 +35,15 @@
         <input type="number" th:field="*{age}">
         <br>
         <button type="submit">Add</button>
+</form>
+
+<h2>Delete a human:</h2>
+<form action="/add-human" method="post" th:object="${human}">
+    <label>Write the name of the human you want to delete</label>
+    <br>
+    <input type="text" th:field="*{name}">
+    <br>
+    <button type="submit">Delete</button>
 </form>
 </body>
 </html>
