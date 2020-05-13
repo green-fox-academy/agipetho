@@ -18,9 +18,16 @@ public class PetShelterController {
   }
 
   @GetMapping("/list-humans")
-  public String getListOfHumans(Model model) {
+  public String getListOfHumans(Model model,
+                                @RequestParam(required = false) boolean wantsToEdit,
+                                @RequestParam(required = false) Long id,
+                                @ModelAttribute Human human) {
+    Human h = new Human();
+    if (id != null) {
+      h = humanService.findHumanByID(id);
+    }
     model.addAttribute("humans", humanService.getAllHumans());
-    model.addAttribute("human", new Human());
+    model.addAttribute("human", wantsToEdit ? h : new Human());
     return "main";
   }
 
@@ -30,9 +37,14 @@ public class PetShelterController {
     return "redirect:/list-humans";
   }
 
-  @PostMapping("/delete")
-  public String deleteHuman(@RequestParam Long id) {
+  @GetMapping("/delete/{id}")
+  public String deleteHuman(@PathVariable Long id) {
     humanService.deleteHuman(id);
     return "redirect:/list-humans";
+  }
+
+  @GetMapping("/edit/{id}")
+  public String editHuman(@PathVariable Long id) {
+    return "redirect:/list-humans/?wantsToEdit=true&id=" + id;
   }
 }

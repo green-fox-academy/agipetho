@@ -29,4 +29,8 @@ public class HumanService {
   public void deleteHuman(Long id){
     humanRepository.deleteById(id);
   }
+
+  public Human findHumanByID(Long id){
+    return humanRepository.findById(id).orElse(null);
+  }
 }
