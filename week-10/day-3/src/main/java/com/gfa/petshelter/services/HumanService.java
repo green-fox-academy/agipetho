@@ -25,4 +25,8 @@ public class HumanService {
   public void addHuman(Human human){
     humanRepository.save(human);
   }
+
+  public void deleteHuman(Long id){
+    humanRepository.deleteById(id);
+  }
 }

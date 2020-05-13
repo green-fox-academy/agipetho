@@ -38,10 +38,10 @@
 </form>
 
 <h2>Delete a human:</h2>
-<form action="/add-human" method="post" th:object="${human}">
-    <label>Write the name of the human you want to delete</label>
+<form action="/delete" method="post" th:object="${human}">
+    <label>Write the id of the human you want to delete</label>
     <br>
-    <input type="text" th:field="*{name}">
+    <input type="text" th:field="*{id}">
     <br>
     <button type="submit">Delete</button>
 </form>
