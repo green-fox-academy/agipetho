@@ -54,20 +54,16 @@ public class PetShelterController {
   }
 
   @GetMapping("/list-pets")
-  public String showAllPets(Model model,
-                            @RequestParam(required = false) Long id,
-                            @RequestParam(required = false) String humanName,
-                            @ModelAttribute Pet pet,
-                            @ModelAttribute Human human) {
+  public String showAllPets(Model model) {
     model.addAttribute("pets", petService.returnAllPets());
     model.addAttribute("humans", humanService.getAllHumans());
-    model.addAttribute("human", human );
-    model.addAttribute("human.name", humanService.findHumanByName(humanName));
+    model.addAttribute("human", new Human());//az adatot nem hasznalja belole, de ez ahhoz kell,
+    // h a Thymeleaf ki tudja tolteni az adatszerkezetet
     return "pets";
   }
 
   @PostMapping("/add-pet")
-  public String addPet(@RequestParam String petName,
+  public String addPet(@RequestParam String petName, //azert nem objectkent vesszuk at, mert nem tudna az egesz objectet kitolteni
                        @RequestParam Long id) {
     Pet pet = new Pet(petName);
     petService.addPet(pet, id);

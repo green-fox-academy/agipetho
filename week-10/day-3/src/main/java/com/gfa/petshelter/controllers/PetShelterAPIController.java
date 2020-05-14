@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 public class PetShelterAPIController {
@@ -39,5 +41,11 @@ public class PetShelterAPIController {
       //return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new Error("No human on the given index" + id));
     }
     return ResponseEntity.status(status).build();
+  }
+
+  @GetMapping("/api/pet-names-older-human")
+  public List<String> getPetsForOlderThanHumans(@RequestParam int referenceAge) {
+    return humanService.returnPetNames(referenceAge);
+
   }
 }
