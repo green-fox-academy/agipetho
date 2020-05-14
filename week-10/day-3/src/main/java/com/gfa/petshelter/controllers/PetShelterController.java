@@ -1,7 +1,9 @@
 package com.gfa.petshelter.controllers;
 
 import com.gfa.petshelter.models.Human;
+import com.gfa.petshelter.models.Pet;
 import com.gfa.petshelter.services.HumanService;
+import com.gfa.petshelter.services.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,11 +13,14 @@ import org.springframework.web.bind.annotation.*;
 public class PetShelterController {
 
   HumanService humanService;
+  PetService petService;
 
   @Autowired
-  public PetShelterController(HumanService humanService) {
+  public PetShelterController(HumanService humanService, PetService petService) {
     this.humanService = humanService;
+    this.petService = petService;
   }
+
 
   @GetMapping("/list-humans")
   public String getListOfHumans(Model model,
@@ -46,5 +51,13 @@ public class PetShelterController {
   @GetMapping("/edit/{id}")
   public String editHuman(@PathVariable Long id) {
     return "redirect:/list-humans/?wantsToEdit=true&id=" + id;
+  }
+
+  @GetMapping("/list-pets")
+  public String showAllPets(Model model,
+                            @ModelAttribute Pet pet,
+                            @ModelAttribute Human human) {
+    model.addAttribute("pets", petService.returnAllPets());
+    return "pets";
   }
 }

@@ -22,8 +22,8 @@
         <td th:text="${human.id}"></td>
         <td th:text="${human.name}"></td>
         <td th:text="${human.age}"></td>
-        <td><a th:href="@{'/delete/' + ${human.id}}">delete</a></td>
-        <td><a th:href="@{'/edit/' + ${human.id}}">edit</a></td>
+        <td><button><a th:href="@{'/delete/' + ${human.id}}">delete</a> </button></td>
+        <td><button><a th:href="@{'/edit/' + ${human.id}}">edit</a> </button></td>
     </tr>
     </tbody>
 </table>
@@ -42,3 +42,11 @@
 </form>
 </body>
 </html>
+
+<!--th:action="@{${isEdit} ? '/valami' : 'vaami2'}"
+<ul>
+    <li th:each="ty : ${allTypes}">
+        <input type="radio" th:field="*{type}" th:value="${ty}" />
+        <label th:for="${#ids.prev('type')}" th:text="#{${'seedstarter.type.' + ty}}">Wireframe</label>
+    </li>
+</ul>\-->

@@ -1,9 +1,9 @@
 package com.gfa.petshelter.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Human {
@@ -12,7 +12,12 @@ public class Human {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long id;
   private String name;
+
+  @JsonIgnore
   private int age;
+
+  @OneToMany(fetch = FetchType.EAGER, mappedBy = "human", cascade = CascadeType.ALL)
+  List<Pet> pets;
 
   public Human() {
   }
