@@ -12,4 +12,6 @@ public interface HumanRepository extends CrudRepository <Human, Long>{
 
   List<Human> findAll();
   Optional<Human> findById(Long id);
+  Optional<Human> findByName(String name);
+
 }

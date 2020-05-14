@@ -13,10 +13,19 @@ public class Pet {
   @JoinColumn
   private Human human;
 
+  public Human getHuman() {
+    return human;
+  }
+
+  public void setHuman(Human human) {
+    this.human = human;
+  }
+
   public Pet() {
   }
 
   public Pet(String name) {
+    this.name = name;
   }
 
   public long getId() {

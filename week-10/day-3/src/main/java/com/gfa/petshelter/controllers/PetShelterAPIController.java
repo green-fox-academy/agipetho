@@ -24,6 +24,7 @@ public class PetShelterAPIController {
       return ResponseEntity.badRequest().body(new Error("No human on the given index" + id));
     } else {
       return ResponseEntity.ok().body(humanService.findHumanByID(id));
+      //return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new Error("No human on the given index" + id));
     }
   }
 
@@ -35,6 +36,7 @@ public class PetShelterAPIController {
       status = HttpStatus.OK;
     } catch (NotFoundException ex) {
       status = HttpStatus.NOT_FOUND;
+      //return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new Error("No human on the given index" + id));
     }
     return ResponseEntity.status(status).build();
   }

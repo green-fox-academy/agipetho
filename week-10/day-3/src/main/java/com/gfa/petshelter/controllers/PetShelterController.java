@@ -55,9 +55,22 @@ public class PetShelterController {
 
   @GetMapping("/list-pets")
   public String showAllPets(Model model,
+                            @RequestParam(required = false) Long id,
+                            @RequestParam(required = false) String humanName,
                             @ModelAttribute Pet pet,
                             @ModelAttribute Human human) {
     model.addAttribute("pets", petService.returnAllPets());
+    model.addAttribute("humans", humanService.getAllHumans());
+    model.addAttribute("human", human );
+    model.addAttribute("human.name", humanService.findHumanByName(humanName));
     return "pets";
+  }
+
+  @PostMapping("/add-pet")
+  public String addPet(@RequestParam String petName,
+                       @RequestParam Long id) {
+    Pet pet = new Pet(petName);
+    petService.addPet(pet, id);
+    return "redirect:/list-pets";
   }
 }

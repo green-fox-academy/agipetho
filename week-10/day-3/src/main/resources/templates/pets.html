@@ -27,5 +27,22 @@
     </tbody>
 </table>
 
+<h2>Add new pet:</h2>
+<form action="/add-pet" method="post" th:object="${pet}">
+    <br>
+    <label>Name</label>
+    <br>
+    <input type="text" name="petName">
+    <br>
+    <label>Human's name</label>
+    <br>
+    <select th:field="${human.id}">
+        <option th:each="human : ${humans}" th:value="${human.id}" th:text="${human.name}"></option>
+    </select>
+    <br>
+
+    <button type="submit">Add</button>
+</form>
+
 </body>
 </html>

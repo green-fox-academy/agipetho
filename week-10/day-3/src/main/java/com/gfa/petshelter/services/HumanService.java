@@ -36,6 +36,10 @@ public class HumanService {
     return humanRepository.findById(id).orElse(null);
   }
 
+  public Human findHumanByName(String name) {
+    return humanRepository.findByName(name).orElse(null);
+  }
+
   public void deletHumanById(long id) throws NotFoundException {
     Optional<Human> optionalHuman = humanRepository.findById(id);
     if (optionalHuman.isPresent()) {
