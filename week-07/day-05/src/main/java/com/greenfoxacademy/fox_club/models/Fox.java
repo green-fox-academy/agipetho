@@ -3,19 +3,19 @@ package com.greenfoxacademy.fox_club.models;
 import java.util.List;
 
 public class Fox {
-private String name;
-private List<Trick> listOfTricks;
-private Food food;
-private Drink drink;
+  private String name;
+  private List<Trick> listOfTricks;
+  private Food food;
+  private Drink drink;
 
   public Fox() {
   }
 
-  public Fox(String name, Food food, Drink drink){
-  this.name = name;
-  this.drink = drink;
-  this.food = food;
-}
+  public Fox(String name, Food food, Drink drink) {
+    this.name = name;
+    this.drink = drink;
+    this.food = food;
+  }
 
   public String getName() {
     return name;

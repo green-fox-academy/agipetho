@@ -74,6 +74,7 @@ public class Article {
   public void setUrl(String url) {
     this.url = url;
   }
+
   public Date getDate() {
     return date;
   }

@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name= "users")
+@Table(name = "users")
 public class User {
   @Id
-  @GeneratedValue(strategy= GenerationType.IDENTITY)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long id;
   private String userName;
 
@@ -20,12 +20,12 @@ public class User {
     this.articles = new ArrayList<>();
   }
 
-  public User(String userName){
-    this. userName = userName;
+  public User(String userName) {
+    this.userName = userName;
     this.articles = new ArrayList<>();
   }
 
-  public List<Article> getArticles(){
+  public List<Article> getArticles() {
     return articles;
   }
 

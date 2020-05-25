@@ -1,9 +1,8 @@
 package com.greenfoxacademy.restpractice.models;
 
 
-
 public class Error {
-private String error;
+  private String error;
 
   public Error(String error) {
     this.error = error;

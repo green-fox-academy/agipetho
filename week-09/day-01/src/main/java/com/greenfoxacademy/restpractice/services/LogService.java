@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface LogService {
   void addLog(Log log);
+
   List<Log> getAllLogs();
 }

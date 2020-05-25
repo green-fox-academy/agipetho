@@ -11,13 +11,13 @@ import java.security.Key;
 import java.util.HashMap;
 
 public class CountLetters {
-  public  HashMap<Character, Integer> createDictionary(String inputWord) {
+  public HashMap<Character, Integer> createDictionary(String inputWord) {
     HashMap<Character, Integer> dictionaryHashMap = new HashMap();
     for (int i = 0; i < inputWord.length(); i++) {
-      if (dictionaryHashMap.containsKey(inputWord.charAt(i))){
-        dictionaryHashMap.replace(inputWord.charAt(i),dictionaryHashMap.get(inputWord.charAt(i))+1 );
-      }else {
-        dictionaryHashMap.put(inputWord.charAt(i),1);
+      if (dictionaryHashMap.containsKey(inputWord.charAt(i))) {
+        dictionaryHashMap.replace(inputWord.charAt(i), dictionaryHashMap.get(inputWord.charAt(i)) + 1);
+      } else {
+        dictionaryHashMap.put(inputWord.charAt(i), 1);
       }
     }
     return dictionaryHashMap;

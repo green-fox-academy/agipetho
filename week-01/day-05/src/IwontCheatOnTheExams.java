@@ -1,9 +1,9 @@
 public class IwontCheatOnTheExams {
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
-        for (int i =0; i < 100; i++) {
-            System.out.println("I wont cheat on the exams!");
-        }
-
+    for (int i = 0; i < 100; i++) {
+      System.out.println("I wont cheat on the exams!");
     }
+
+  }
 }

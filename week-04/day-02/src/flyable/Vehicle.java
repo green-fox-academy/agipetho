@@ -10,7 +10,7 @@ public abstract class Vehicle {
   protected int maxSpeed;
   protected int maxPeople;
 
-  public Vehicle(){
+  public Vehicle() {
 
   }
 

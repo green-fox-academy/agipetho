@@ -23,7 +23,6 @@ public class ResultInt {
     }
 
 
-
   }
 
   public int sumFunction(int[] numbers) {

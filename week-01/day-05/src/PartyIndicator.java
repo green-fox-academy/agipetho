@@ -12,26 +12,25 @@
 //
 // It should print: Sausage party
 // If no girls are coming, regardless the count of the people
-import java.util. Scanner;
-public class PartyIndicator {
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        System.out.println("How many girls?");
-        int numberOfGirls = input.nextInt();
-        System.out.println("How many boys?");
-        int numberOfBoys = input.nextInt();
 
-        if (numberOfGirls == numberOfBoys && (numberOfGirls + numberOfBoys) >= 20) {
-            System.out.println("The party is excellent!");
-        }
-        else if (numberOfGirls != numberOfBoys && (numberOfGirls + numberOfBoys) >= 20) {
-            System.out.println("Quite cool party!");
-        }
-        else if (numberOfGirls == 0){
-            System.out.println("Sausage party");
-        }
-        else {
-            System.out.println("Average party...");
-        }
+import java.util.Scanner;
+
+public class PartyIndicator {
+  public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+    System.out.println("How many girls?");
+    int numberOfGirls = input.nextInt();
+    System.out.println("How many boys?");
+    int numberOfBoys = input.nextInt();
+
+    if (numberOfGirls == numberOfBoys && (numberOfGirls + numberOfBoys) >= 20) {
+      System.out.println("The party is excellent!");
+    } else if (numberOfGirls != numberOfBoys && (numberOfGirls + numberOfBoys) >= 20) {
+      System.out.println("Quite cool party!");
+    } else if (numberOfGirls == 0) {
+      System.out.println("Sausage party");
+    } else {
+      System.out.println("Average party...");
     }
+  }
 }

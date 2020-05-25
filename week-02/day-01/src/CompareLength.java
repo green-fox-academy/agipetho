@@ -6,11 +6,11 @@
 // - Print "secondArrayOfNumbers is longer" if `secondArrayOfNumbers` has more
 //   elements than `firstArrayOfNumbers`
 public class CompareLength {
-    public static void main(String[] args) {
-        int [] firstArrayOfNumbers = {1, 2, 3};
-        int [] secondArrayOfNumbers = {4, 5, 6, 8, 9};
-        if (secondArrayOfNumbers.length > firstArrayOfNumbers.length){
-            System.out.println("secondArrayOfNumbers is longer");
-        }
+  public static void main(String[] args) {
+    int[] firstArrayOfNumbers = {1, 2, 3};
+    int[] secondArrayOfNumbers = {4, 5, 6, 8, 9};
+    if (secondArrayOfNumbers.length > firstArrayOfNumbers.length) {
+      System.out.println("secondArrayOfNumbers is longer");
     }
+  }
 }

@@ -9,12 +9,12 @@
 <header>
     <br>
     <nav>
-    <u1>
-        <li><a th:href="@{'/reddit/submit/?name=' + ${name}}">Submit new post</a></li>
-        <li><a>Current user:  <span th:text="${name}"></span></a></li>
-    </u1>
+        <u1>
+            <li><a th:href="@{'/reddit/submit/?name=' + ${name}}">Submit new post</a></li>
+            <li><a>Current user: <span th:text="${name}"></span></a></li>
+        </u1>
     </nav>
-<br>
+    <br>
 </header>
 
 <h2>Trending posts</h2>
@@ -30,14 +30,14 @@
     </tr>
     <tbody>
     <tr th:each="article : ${articles}" th:object="${article}">
-        <td th:text="${article.numberOfVotes}" ></td>
+        <td th:text="${article.numberOfVotes}"></td>
         <td><a th:href="@{'/reddit/vote/?vote=up&id=' + ${article.id}}">+</a></td>
         <td><a th:href="@{'/reddit/vote/?vote=down&id=' + ${article.id}}">-</a></td>
         <td><a th:href="${article.url}" target="blank" th:text="${article.title}"></a></td>
         <td th:text="${article.date}"></td>
         <td>
-        <!--<span th:if ="${article.getUser() == null}" >unknown</span>-->
-        <span th:text="${article.user != null} ? ${article.user.userName} : 'unknown'"></span>
+            <!--<span th:if ="${article.getUser() == null}" >unknown</span>-->
+            <span th:text="${article.user != null} ? ${article.user.userName} : 'unknown'"></span>
         </td>
     </tr>
     </tbody>

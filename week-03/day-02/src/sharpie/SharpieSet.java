@@ -6,17 +6,18 @@ import java.util.List;
 public class SharpieSet {
   private List<Sharpie> setOfSharpies;
 
-  public SharpieSet () {
+  public SharpieSet() {
     setOfSharpies = new ArrayList<>();
   }
 
-  public void add(Sharpie sharpie){
+  public void add(Sharpie sharpie) {
     setOfSharpies.add(sharpie);
   }
 
-  public void useASharpie(int index){
+  public void useASharpie(int index) {
     setOfSharpies.get(index).use();
   }
+
   public int countUsable() {
     int counter = 0;
     for (Sharpie sharpie : setOfSharpies) {
@@ -28,8 +29,8 @@ public class SharpieSet {
   }
 
   public void removeTrash() {
-    for ( Sharpie sharpie: setOfSharpies) {
-      if (sharpie.inkAmount <= 0){
+    for (Sharpie sharpie : setOfSharpies) {
+      if (sharpie.inkAmount <= 0) {
         setOfSharpies.remove(sharpie);
       }
     }

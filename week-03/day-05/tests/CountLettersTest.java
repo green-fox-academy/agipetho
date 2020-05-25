@@ -7,10 +7,11 @@ import static org.junit.Assert.*;
 
 public class CountLettersTest {
   CountLetters countLetters = new CountLetters();
+
   @Test
   public void createDictionary_withGoodExample() {
     String testWord = "array";
-    HashMap<Character, Integer> inputWordArray= new HashMap<>();
+    HashMap<Character, Integer> inputWordArray = new HashMap<>();
     inputWordArray.put('a', 2);
     inputWordArray.put('r', 2);
     inputWordArray.put('y', 1);
@@ -22,7 +23,7 @@ public class CountLettersTest {
   @Test
   public void createDictionary_withWrongExample() {
     String testWord = "array";
-    HashMap<Character, Integer> inputWordArray= new HashMap<>();
+    HashMap<Character, Integer> inputWordArray = new HashMap<>();
     inputWordArray.put('a', 3);
     inputWordArray.put('r', 2);
     inputWordArray.put('y', 1);

@@ -14,23 +14,24 @@ Mentor(): sets name to Jane Doe, age to 30, gender to female, level to intermedi
 package greenfoxexercise;
 
 public class Mentor extends Person {
-    private String level;
+  private String level;
 
-    public Mentor(String name, int age, boolean gender, String level) {
-      super(name, age, gender);
-      this.level = level;
-    }
+  public Mentor(String name, int age, boolean gender, String level) {
+    super(name, age, gender);
+    this.level = level;
+  }
 
-    public Mentor() {
-      super("Jane Doe", 30, false);
-      level = "intermediate";
-    }
-    public void getGoal(){
-      System.out.println("Educate brilliant junior software developers.");
-    }
+  public Mentor() {
+    super("Jane Doe", 30, false);
+    level = "intermediate";
+  }
 
-    public void introduce(){
-      System.out.println("Hi, I'm " + getName() + " , a " + getAge() + " year old " + ((isAMale) ? "male" : "female ") + level + " mentor.");
-    }
+  public void getGoal() {
+    System.out.println("Educate brilliant junior software developers.");
+  }
+
+  public void introduce() {
+    System.out.println("Hi, I'm " + getName() + " , a " + getAge() + " year old " + ((isAMale) ? "male" : "female ") + level + " mentor.");
+  }
 
 }

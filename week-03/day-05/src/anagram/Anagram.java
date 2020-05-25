@@ -6,10 +6,11 @@ Create a test for that.*/
 package anagram;
 
 import java.util.Arrays;
+
 public class Anagram {
-  public static boolean anagram(String a, String b){
-    char [] aArray = a.toCharArray();
-    char [] bArray = b.toCharArray();
+  public static boolean anagram(String a, String b) {
+    char[] aArray = a.toCharArray();
+    char[] bArray = b.toCharArray();
 
     Arrays.sort(aArray);
     Arrays.sort(bArray);

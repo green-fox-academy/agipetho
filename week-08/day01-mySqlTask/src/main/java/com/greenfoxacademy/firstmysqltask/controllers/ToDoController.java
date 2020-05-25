@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
-@RequestMapping (value = "/")
+@RequestMapping(value = "/")
 public class ToDoController {
   private ToDoRepository repository;
 
@@ -25,9 +25,9 @@ public class ToDoController {
 
   @GetMapping({"/", "/list"})
   public String list(Model model) {
-    List<ToDo> activeTodos= new ArrayList<>();
+    List<ToDo> activeTodos = new ArrayList<>();
     repository.findAll().forEach(activeTodos::add);
-    List<ToDo> activeTodos2 =activeTodos.stream()
+    List<ToDo> activeTodos2 = activeTodos.stream()
         .filter(todo -> !todo.isDone())
         .collect(Collectors.toList());
     model.addAttribute("todos", activeTodos2);

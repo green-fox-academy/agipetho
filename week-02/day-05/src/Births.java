@@ -44,7 +44,7 @@ public class Births {
       } catch (NumberFormatException e) {
         System.out.println("Cannot be parsed: " + line);
         //continue with next iteration
-      }catch (ArrayIndexOutOfBoundsException e){
+      } catch (ArrayIndexOutOfBoundsException e) {
         System.out.println("Out of bound of length: " + line);
         ////continue with next iteration
       }

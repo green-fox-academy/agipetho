@@ -31,6 +31,7 @@ public class ResultIntTests {
 
     Assert.assertEquals(70, testResult);
   }
+
   @Test
   public void multiplyWith0ShouldReturn0() {
     int[] numbers = {5, 8, 0};

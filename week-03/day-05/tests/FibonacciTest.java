@@ -13,12 +13,14 @@ public class FibonacciTest {
     int result = Fibonacci.computeFibonacciNNumber(testIndex);
     assertEquals(3, result);
   }
+
   @Test
   public void computeFibonacciNNumber_at0() {
     int testIndex = 0;
     int result = Fibonacci.computeFibonacciNNumber(testIndex);
     assertEquals(0, result);
   }
+
   @Test
   public void computeFibonacciNNumber_at1() {
     int testIndex = 1;

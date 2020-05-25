@@ -31,14 +31,14 @@ public class Person {
   public Person() {
     name = "Jane Doe";
     age = 30;
-    isAMale =false;
+    isAMale = false;
   }
 
-  public void introduce(){
-    System.out.println("Hi, I'm " + name + ", a " + age + " year old " + ((isAMale) ? "male" : "female" + "." ));
+  public void introduce() {
+    System.out.println("Hi, I'm " + name + ", a " + age + " year old " + ((isAMale) ? "male" : "female" + "."));
   }
 
-  public void getGoal(){
+  public void getGoal() {
     System.out.println("My goal is: Live for the moment!");
   }
 

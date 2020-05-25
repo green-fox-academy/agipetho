@@ -19,8 +19,8 @@ public class Main {
     Student student = new Student();
     Teacher teacher = new Teacher();
 
-student.ask(teacher);
-teacher.teach(student);
+    student.ask(teacher);
+    teacher.teach(student);
 
 
   }

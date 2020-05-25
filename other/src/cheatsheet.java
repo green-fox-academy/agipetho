@@ -2,23 +2,23 @@
 //my cheatsheet
 
 // equal: nem ==, hanem:
-        if (currentIGetPost.equals("GET")) {
-            numberOfGet += 1;
+        if(currentIGetPost.equals("GET")){
+            numberOfGet+=1;
 
 //  I. File IO
 
 //for each
-      for (String line: lines) {
-          System.out.println(line);
-          }
+            for(String line:lines){
+            System.out.println(line);
+            }
 //IO Exeption
-          catch (IOException e) {
-          System.out.println("Unable to read file: my-file.txt");
-          }
+            catch(IOException e){
+            System.out.println("Unable to read file: my-file.txt");
+            }
 
 // write the file into Path + iterate + write the file into another
 
-    //DOUBLE
+//DOUBLE
 
 public class Doubled {
   public static void main(String[] args) {

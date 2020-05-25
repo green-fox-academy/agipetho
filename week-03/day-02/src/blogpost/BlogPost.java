@@ -19,7 +19,7 @@ public class BlogPost {
   String text;
   String date;
 
-  public BlogPost (String author, String title, String text, String date){
+  public BlogPost(String author, String title, String text, String date) {
     this.text = text;
     this.author = author;
     this.title = title;

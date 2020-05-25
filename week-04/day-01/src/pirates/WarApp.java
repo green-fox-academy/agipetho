@@ -8,7 +8,7 @@ public class WarApp {
     Armada armada1 = new Armada();
     Armada armada2 = new Armada();
 
-    int ships = random.nextInt(9)+1;
+    int ships = random.nextInt(9) + 1;
 
     for (int i = 0; i < ships; i++) {
       boolean toFirstArmada = random.nextBoolean();

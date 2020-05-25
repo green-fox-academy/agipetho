@@ -54,10 +54,10 @@ public class DiceSet {
       System.out.println(diceSet.getCurrent());
     }
 
-   // System.out.println(diceSet.getCurrent(5));
-   // diceSet.reroll();
+    // System.out.println(diceSet.getCurrent(5));
+    // diceSet.reroll();
     //System.out.println(diceSet.getCurrent());
-   // diceSet.reroll(4);
-   // System.out.println(diceSet.getCurrent());
+    // diceSet.reroll(4);
+    // System.out.println(diceSet.getCurrent());
   }
 }

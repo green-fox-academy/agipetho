@@ -63,7 +63,7 @@ public class MineSweeper extends JComponent implements MouseListener {
     //System.out.println(((e.getX() - leftInset) / IMAGE_SIZE + 1) + " " + ((e.getY() - topInset) / IMAGE_SIZE + 1));
     this.grid.handleClick(((e.getX() - leftInset) / IMAGE_SIZE + 1), ((e.getY() - topInset) / IMAGE_SIZE + 1));
 
-    if(grid.getGameState().equals("lose")){
+    if (grid.getGameState().equals("lose")) {
       grid.revealAll();
     }
 

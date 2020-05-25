@@ -3,9 +3,9 @@ package com.greenfoxacademy.restpractice.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Doubling {
- @JsonProperty("received")
+  @JsonProperty("received")
   private int input;
- @JsonProperty("result")
+  @JsonProperty("result")
   private int output;
 
   public Doubling(int input) {

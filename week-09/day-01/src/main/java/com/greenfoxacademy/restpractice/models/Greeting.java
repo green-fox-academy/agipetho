@@ -40,7 +40,8 @@ public class Greeting {
   public void setMessage(String message) {
     this.message = message;
   }
-@JsonProperty("welcome_message")
+
+  @JsonProperty("welcome_message")
   private String message;
 
   public Greeting(String name, String title) {

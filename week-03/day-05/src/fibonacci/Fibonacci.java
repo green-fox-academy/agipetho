@@ -13,7 +13,7 @@ public class Fibonacci {
     if (index == 0 || index == 1) {
       return index;
     } else {
-return computeFibonacciNNumber(index-1) + computeFibonacciNNumber(index - 2);
+      return computeFibonacciNNumber(index - 1) + computeFibonacciNNumber(index - 2);
     }
   }
 

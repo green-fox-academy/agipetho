@@ -10,8 +10,8 @@ public class CowsAndBullsTest {
   @Test
   public void guess_WithOneCows() {
     int int1 = 3455;
-    int int2 =3188;
-    String result = cowsAndBulls.guess(int1,  int2);
+    int int2 = 3188;
+    String result = cowsAndBulls.guess(int1, int2);
     assertEquals("0 bulls; 1 cows", result);
   }
 

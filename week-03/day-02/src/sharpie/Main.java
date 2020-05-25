@@ -19,7 +19,7 @@ public class Main {
     mySharpieSet.add(new Sharpie("blue", 50));
     mySharpieSet.add(new Sharpie("green", 30));
 
-    for (int i = 0; i < 160 ; i++) {
+    for (int i = 0; i < 160; i++) {
       mySharpieSet.useASharpie(1);
     }
     System.out.println(mySharpieSet.countUsable());

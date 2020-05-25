@@ -17,7 +17,7 @@ public class ToDo {
   public ToDo() {
   }
 
-  public ToDo(String title){
+  public ToDo(String title) {
     this.title = title;
   }
 

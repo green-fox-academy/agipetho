@@ -23,18 +23,18 @@ public class Test {
     printer(result2, pcs);
   }
 
-  public static List<Integer> filter(List<Integer> listOfIntegers, FancyCallable<Boolean,Integer> callable) throws Exception {
+  public static List<Integer> filter(List<Integer> listOfIntegers, FancyCallable<Boolean, Integer> callable) throws Exception {
     List<Integer> resultList = new ArrayList<>();
     for (Integer element : listOfIntegers) {
-      if(callable.call1(element)){
+      if (callable.call1(element)) {
         resultList.add(element);
       }
     }
     return resultList;
   }
 
-  public static void printer(List<Integer> listOfIntegers, FancyCallable<Boolean,Integer> callable) throws Exception{
-    for (Integer element : listOfIntegers){
+  public static void printer(List<Integer> listOfIntegers, FancyCallable<Boolean, Integer> callable) throws Exception {
+    for (Integer element : listOfIntegers) {
       callable.call1(element);
     }
   }

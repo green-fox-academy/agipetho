@@ -28,7 +28,7 @@ public class Field {
     return fieldType;
   }
 
-  public void draw(Graphics graphics, Resource resource, int imageSize){
+  public void draw(Graphics graphics, Resource resource, int imageSize) {
     graphics.drawImage(resource.getImage(this.fieldType),
         row * imageSize - imageSize,
         column * imageSize - imageSize, null);

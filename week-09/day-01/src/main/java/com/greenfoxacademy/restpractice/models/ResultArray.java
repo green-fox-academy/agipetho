@@ -8,7 +8,7 @@ public class ResultArray {
 
   private int[] result;
 
-  public ResultArray(int [] numbers)  {
+  public ResultArray(int[] numbers) {
     result = Arrays.stream(numbers).map(a -> 2 * a).toArray();
   }
 

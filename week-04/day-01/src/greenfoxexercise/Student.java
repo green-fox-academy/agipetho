@@ -32,10 +32,12 @@ public class Student extends Person {
     previousOrganisation = "The Scool of Life";
     skippedDays = 0;
   }
-  public void introduce (){
-    System.out.println( "Hi, I'm " + getName() + " , a " + getAge() + " year old " + ((isAMale) ? "male" : "female") + " from " + previousOrganisation + " who skipped " + skippedDays + " days from the course already.");
+
+  public void introduce() {
+    System.out.println("Hi, I'm " + getName() + " , a " + getAge() + " year old " + ((isAMale) ? "male" : "female") + " from " + previousOrganisation + " who skipped " + skippedDays + " days from the course already.");
   }
-  public int skipDays (int numberOfDays){
+
+  public int skipDays(int numberOfDays) {
     return skippedDays += numberOfDays;
   }
 }

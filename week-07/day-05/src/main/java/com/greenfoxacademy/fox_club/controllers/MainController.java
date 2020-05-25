@@ -21,12 +21,12 @@ public class MainController {
   }
 
   @GetMapping("/")
-    public String getInfoPage(@RequestParam(required = false) String name, Model model) {
-      model.addAttribute("name", name);
-      model.addAttribute("selectedFox", foxService.getFox(name));
-      model.addAttribute("foods", nutritionService.getListOfFoods());
-      model.addAttribute("drinks", nutritionService.getListOfDrinks());
-      return "index";
+  public String getInfoPage(@RequestParam(required = false) String name, Model model) {
+    model.addAttribute("name", name);
+    model.addAttribute("selectedFox", foxService.getFox(name));
+    model.addAttribute("foods", nutritionService.getListOfFoods());
+    model.addAttribute("drinks", nutritionService.getListOfDrinks());
+    return "index";
   }
 
   @GetMapping("/login")

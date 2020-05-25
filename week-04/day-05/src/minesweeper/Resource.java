@@ -24,7 +24,7 @@ public class Resource {
     images.put(FieldType.UNREVEALED, loadImage("unrevealed.png"));
   }
 
-  private BufferedImage loadImage(String filename){
+  private BufferedImage loadImage(String filename) {
     try {
       return ImageIO.read(new File("images/" + filename));
     } catch (IOException e) {
@@ -35,7 +35,7 @@ public class Resource {
     return null;
   }
 
-  public BufferedImage getImage(FieldType fieldType){
+  public BufferedImage getImage(FieldType fieldType) {
     return images.get(fieldType);
   }
 }

@@ -8,11 +8,12 @@ import java.util.Arrays;
 //     - Greeting is printing e.g. `Greetings dear, Green Fox`
 // - Greet `al`
 public class Greet {
-    public static void main(String[] args) {
-        String al = "Agi";
-        greet(al);
-    }
-    public static void greet(String al) {
-            System.out.println("Greetings dear, " + al);
-    }
+  public static void main(String[] args) {
+    String al = "Agi";
+    greet(al);
+  }
+
+  public static void greet(String al) {
+    System.out.println("Greetings dear, " + al);
+  }
 }

@@ -49,7 +49,8 @@ public class HumanService {
       throw new NotFoundException("No human on the given index" + id);
     }
   }
-  public List<String> returnPetNames(int referenceAge){
+
+  public List<String> returnPetNames(int referenceAge) {
     return humanRepository.findAllPetsWhereHumansWithAgeGreaterThan(referenceAge);
   }
 }

@@ -14,35 +14,35 @@
 import java.util.ArrayList;
 
 public class ListIntroduction2 {
-    public static void main(String[] args) {
-        ArrayList<String> listA = new ArrayList<>();
-        listA.add("Apple");
-        listA.add("Avocado");
-        listA.add("Blueberries");
-        listA.add("Durian");
-        listA.add("Lychee");
+  public static void main(String[] args) {
+    ArrayList<String> listA = new ArrayList<>();
+    listA.add("Apple");
+    listA.add("Avocado");
+    listA.add("Blueberries");
+    listA.add("Durian");
+    listA.add("Lychee");
 
-        ArrayList <String> listB = (ArrayList<String>)listA.clone();
+    ArrayList<String> listB = (ArrayList<String>) listA.clone();
 
-        boolean contain = listA.contains("Durian");
-        System.out.println(contain);
+    boolean contain = listA.contains("Durian");
+    System.out.println(contain);
 
-        listB.remove(3);
-        System.out.println(listA);
-        System.out.println(listB);
+    listB.remove(3);
+    System.out.println(listA);
+    System.out.println(listB);
 
-        listA.add(3, "Kiwifruit");
-        System.out.println(listA);
-        System.out.println(listB);
+    listA.add(3, "Kiwifruit");
+    System.out.println(listA);
+    System.out.println(listB);
 
-        boolean whichIsBigger = listA.size() >= listB.size();
-        System.out.println(whichIsBigger);
+    boolean whichIsBigger = listA.size() >= listB.size();
+    System.out.println(whichIsBigger);
 
-        System.out.println(listA.indexOf("Avocado"));
-        System.out.println(listB.indexOf("Durian"));
+    System.out.println(listA.indexOf("Avocado"));
+    System.out.println(listB.indexOf("Durian"));
 
-        listB.add("Passionfruit, Pomelo");
-        System.out.println(listB);
-        System.out.println(listA.get(3));
-    }
+    listB.add("Passionfruit, Pomelo");
+    System.out.println(listB);
+    System.out.println(listA.get(3));
+  }
 }

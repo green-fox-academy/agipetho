@@ -31,16 +31,18 @@ public class Sponsor extends Person {
     company = "Google";
     hiredStudents = 0;
   }
-  public void introduce(){
+
+  public void introduce() {
     System.out.println("Hi, I'm " + getName() + " a " + getAge() + " year old " + ((isAMale) ? "male" : "female ")
         + "sponsor who represents " + company + " and hired " + hiredStudents + " students so far.");
   }
 
-  public int hire(){
-    hiredStudents +=1;
+  public int hire() {
+    hiredStudents += 1;
     return hiredStudents;
   }
-  public void getGoal(){
+
+  public void getGoal() {
     System.out.println("Hire brilliant junior software developers.");
   }
 

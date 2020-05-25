@@ -6,18 +6,19 @@
 //         It should print how many legs all the animals have
 //    }
 //}
+
 import java.util.Scanner;
 
 public class AnimalsAndLegs {
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+  public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
 //        one scanner is enough!!!!
-        System.out.println("How many chickens do you have?");
-        int chicken = input.nextInt();
-        System.out.println("How many pigs do you have?");
-        int pig = input.nextInt();
+    System.out.println("How many chickens do you have?");
+    int chicken = input.nextInt();
+    System.out.println("How many pigs do you have?");
+    int pig = input.nextInt();
 
-        System.out.println("There are " + ((chicken * 2) + (pig * 4)) + " legs at your farm.");
+    System.out.println("There are " + ((chicken * 2) + (pig * 4)) + " legs at your farm.");
 
-    }
+  }
 }

@@ -5,15 +5,16 @@ import java.util.Arrays;
 // Write a function called `sum` that returns the sum of numbers from zero to the given parameter
 
 public class Sum {
-    public static void main(String[] args) {
-     int nNumber = 2;
-        System.out.println(sum(nNumber));
+  public static void main(String[] args) {
+    int nNumber = 2;
+    System.out.println(sum(nNumber));
+  }
+
+  public static int sum(int limit) {
+    int l = 0;
+    for (int i = 0; i <= limit; i++) {
+      l += i;
     }
-    public static int sum(int limit){
-        int l = 0;
-        for (int i = 0; i <= limit; i++) {
-           l += i;
-        }
-        return l;
-        }
+    return l;
+  }
 }

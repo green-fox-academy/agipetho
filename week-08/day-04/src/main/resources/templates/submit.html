@@ -13,10 +13,10 @@
     <input type="text" th:field="*{title}" placeholder="the title of your post comes here..."><br>
 
     <label>Url</label><br>
-    <input type="text" th:field="*{url}"  placeholder="type a url for your post..."><br>
+    <input type="text" th:field="*{url}" placeholder="type a url for your post..."><br>
 
     <label>Current user: <span th:text="${name}"></span></label><br>
-    <input type="hidden" name= "name" th:value="${name}"><br>
+    <input type="hidden" name="name" th:value="${name}"><br>
     <button type="submit">Submit</button>
 
 </form>

@@ -40,7 +40,7 @@ public class CowsAndBulls {
       if (formattedguessesNumberString.charAt(i) == randomNumberString.charAt(i)) {
         counterOfCows += 1;
         System.out.println("#1 " + randomNumberString);
-        randomNumberString = randomNumberString.substring(0,i) + "x" + randomNumberString.substring(i+1,randomNumberString.length()-i+1);
+        randomNumberString = randomNumberString.substring(0, i) + "x" + randomNumberString.substring(i + 1, randomNumberString.length() - i + 1);
         System.out.println("2 " + randomNumberString);
         //simple match - place is different
       } else if (randomNumberString.contains(String.valueOf(formattedguessesNumberString.charAt(i)))

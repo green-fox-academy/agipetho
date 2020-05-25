@@ -59,7 +59,7 @@ public class Main {
       sponsor.hire();
     }
 
-    for(Person person : people) {
+    for (Person person : people) {
       person.introduce();
       person.getGoal();
     }

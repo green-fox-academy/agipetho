@@ -8,21 +8,21 @@ public class Pirate {
   private boolean isDead;
   private Parrot parrot;
 
-  public void drinkSomeRum(){
-    if (isDead){
+  public void drinkSomeRum() {
+    if (isDead) {
       System.out.println("he's dead");
       return;
     }
 
-    intoxicationLevel ++;
+    intoxicationLevel++;
   }
 
-  public void howsItGoingMate(){
-    if (isDead){
+  public void howsItGoingMate() {
+    if (isDead) {
       System.out.println("he's dead");
       return;
     } else {
-      if (intoxicationLevel < 5){
+      if (intoxicationLevel < 5) {
         System.out.println("Pour me anudder!");
       } else {
         System.out.println("Arghh, I'ma Pirate. How d'ya d'ink its goin?");
@@ -31,28 +31,28 @@ public class Pirate {
     }
   }
 
-  public void sleep(){
-    if (isDead){
+  public void sleep() {
+    if (isDead) {
       System.out.println("he's dead");
       return;
     }
-    intoxicationLevel=0;
+    intoxicationLevel = 0;
     isPassedOut = false;
   }
 
-  public void die(){
+  public void die() {
     isDead = true;
   }
 
-  public void brawl(Pirate enemy){
-    if (isDead || enemy.isDead){
+  public void brawl(Pirate enemy) {
+    if (isDead || enemy.isDead) {
       return;
     }
 
     Random random = new Random();
     int chance = random.nextInt(3);
 
-    if (chance == 0){
+    if (chance == 0) {
       isDead = true;
     } else if (chance == 1) {
       enemy.isDead = true;
@@ -62,7 +62,7 @@ public class Pirate {
     }
   }
 
-  public void addParrot(Parrot parrot){
+  public void addParrot(Parrot parrot) {
     this.parrot = parrot;
   }
 

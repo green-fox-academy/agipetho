@@ -8,7 +8,7 @@ public class Car {
     this.maxSpeed = maxSpeed;
   }
 
-  public int calculateDistance(int time){
+  public int calculateDistance(int time) {
     return (time * maxSpeed);
   }
 }

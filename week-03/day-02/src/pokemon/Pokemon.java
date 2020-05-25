@@ -1,4 +1,5 @@
 package pokemon;
+
 public class Pokemon {
   String name;
   String type;
