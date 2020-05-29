@@ -1,7 +1,7 @@
-package com.greenfoxacademy.jwt.filter;
+package com.greenfoxacademy.jwt.config;
 
 import com.greenfoxacademy.jwt.services.MyUserDetailsService;
-import com.greenfoxacademy.jwt.util.JwtUtil;
+import com.greenfoxacademy.jwt.utils.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;

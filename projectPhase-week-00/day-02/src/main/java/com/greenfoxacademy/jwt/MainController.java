@@ -3,7 +3,7 @@ package com.greenfoxacademy.jwt;
 import com.greenfoxacademy.jwt.models.AuthenticationRequest;
 import com.greenfoxacademy.jwt.models.AuthenticationResponse;
 import com.greenfoxacademy.jwt.services.MyUserDetailsService;
-import com.greenfoxacademy.jwt.util.JwtUtil;
+import com.greenfoxacademy.jwt.utils.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;

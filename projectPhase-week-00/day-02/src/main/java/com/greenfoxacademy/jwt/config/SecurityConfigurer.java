@@ -1,6 +1,5 @@
-package com.greenfoxacademy.jwt;
+package com.greenfoxacademy.jwt.config;
 
-import com.greenfoxacademy.jwt.filter.JwtRequestFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;

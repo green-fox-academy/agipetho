@@ -1,4 +1,4 @@
-package com.greenfoxacademy.jwt.util;
+package com.greenfoxacademy.jwt.utils;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
