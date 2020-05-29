@@ -16,14 +16,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class JwtController {
+public class MainController {
 
   private AuthenticationManager authenticationManager;
   private MyUserDetailsService userDetailsService;
   private JwtUtil jwtUtil;
 
   @Autowired
-  public JwtController(AuthenticationManager authenticationManager,
+  public MainController(AuthenticationManager authenticationManager,
                         MyUserDetailsService userDetailsService,
                         JwtUtil jwtUtil) {
     this.authenticationManager = authenticationManager;
@@ -31,9 +31,9 @@ public class JwtController {
     this.jwtUtil = jwtUtil;
   }
 
-  @GetMapping("/hello")
+  @GetMapping({"/ciao", "/hello"})
   public String hello() {
-    return "hello";
+    return "Hello, this is Agi's first app with Spring Security:)";
   }
 
   @PostMapping("/authenticate")

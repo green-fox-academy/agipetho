@@ -16,7 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainController {
 
   public static String BASE_URL = "https://api.themoviedb.org";
-  private String API_KEY = "9537577ff4356e2086588b16cb363876";
+  private String API_KEY = "dc6e4b64943549c9f83d055f94ecd8c5";
   private String LANGUAGE = "en-US";
   private int PAGE = 1;
 
