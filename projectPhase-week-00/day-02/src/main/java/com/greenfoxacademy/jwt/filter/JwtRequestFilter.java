@@ -20,7 +20,6 @@ import java.io.IOException;
 public class JwtRequestFilter extends OncePerRequestFilter {
 
   private MyUserDetailsService myUserDetailsService;
-
   private JwtUtil jwtUtil;
 
   @Autowired
@@ -34,12 +33,12 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                                   HttpServletResponse response,
                                   FilterChain filterChain) throws ServletException, IOException {
     String authorizationHeader = request.getHeader("Authorization");
-
+    String bearer="Bearer ";
     String username = null;
     String jwt = null;
 
-    if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")){
-      jwt = authorizationHeader.substring(7);
+    if (authorizationHeader != null && authorizationHeader.startsWith(bearer)){
+      jwt = authorizationHeader.substring(bearer.length());
       username = jwtUtil.extractUsername(jwt);
     }
 
