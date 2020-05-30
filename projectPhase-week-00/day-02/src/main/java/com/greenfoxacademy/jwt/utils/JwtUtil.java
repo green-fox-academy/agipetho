@@ -13,7 +13,8 @@ import java.util.function.Function;
 @Component
 public class JwtUtil {
 
-  private String SECRET_KEY = "secretKey";
+  //private String SECRET_KEY = "secretKey";
+  private String SECRET_KEY = System.getenv("SECRET_KEY");
 
   //készítés
   //fogja az adatokat, amiket ad a UserDetailsService és tokent generál
