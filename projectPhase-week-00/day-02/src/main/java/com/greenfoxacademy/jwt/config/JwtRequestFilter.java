@@ -16,6 +16,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+
+//itt "indulunk", megszuri a beerkezo request-eket
+//For any incoming request this Filter (OncePerRequestFilter) class gets executed.
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter {
 
@@ -33,18 +36,22 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                                   HttpServletResponse response,
                                   FilterChain filterChain) throws ServletException, IOException {
     String authorizationHeader = request.getHeader("Authorization");
-    String bearer="Bearer ";
+    String bearer = "Bearer ";
     String username = null;
     String jwt = null;
 
-    if (authorizationHeader != null && authorizationHeader.startsWith(bearer)){
+// ha van tokenunk, akkor abbol kiszedi a jwt-t es a username-et
+    if (authorizationHeader != null && authorizationHeader.startsWith(bearer)) {
       jwt = authorizationHeader.substring(bearer.length());
       username = jwtUtil.extractUsername(jwt);
     }
 
-    if (username != null && SecurityContextHolder.getContext().getAuthentication() == null){
+//validalja a tokent
+// If it has a valid JWT Token then it sets the Authentication in the context,
+// to specify that the current user is authenticated.
+    if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
       UserDetails userDetails = this.myUserDetailsService.loadUserByUsername(username);
-      if (jwtUtil.validateToken(jwt, userDetails)){
+      if (jwtUtil.validateToken(jwt, userDetails)) {
         UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken =
             new UsernamePasswordAuthenticationToken(userDetails, null,
                 userDetails.getAuthorities());
