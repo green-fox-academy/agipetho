@@ -18,6 +18,9 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
 
   @Autowired
+  private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
+
+  @Autowired
   private UserDetailsService myUserDetailsService;
 
   @Autowired
@@ -31,16 +34,18 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
   @Override
   protected void configure(HttpSecurity http) throws Exception {
     http.csrf().disable()
-        .authorizeRequests().antMatchers("/authenticate")
-        .permitAll()
-        .anyRequest()
-        .authenticated()
-        .and()
-        .sessionManagement()
+        // dont authenticate this particular request
+        .authorizeRequests().antMatchers("/authenticate").permitAll()
+        // all other requests need to be authenticated
+        .anyRequest().authenticated().and()
+        // make sure we use stateless session; session won't be used to
+        // store user's state.
+        .exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
         .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+    // Add a filter to validate the tokens with every request
     http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
   }
-
+  
   @Override
   @Bean
   public AuthenticationManager authenticationManagerBean() throws Exception {
