@@ -1,4 +1,4 @@
-package com.greenfoxacademy.jwt;
+package com.greenfoxacademy.jwt.controllers;
 
 import com.greenfoxacademy.jwt.models.AuthenticationRequest;
 import com.greenfoxacademy.jwt.models.AuthenticationResponse;

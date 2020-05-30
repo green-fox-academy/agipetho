@@ -45,7 +45,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
     // Add a filter to validate the tokens with every request
     http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
   }
-  
+
   @Override
   @Bean
   public AuthenticationManager authenticationManagerBean() throws Exception {
