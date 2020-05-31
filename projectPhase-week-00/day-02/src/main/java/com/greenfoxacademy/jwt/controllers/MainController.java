@@ -2,6 +2,7 @@ package com.greenfoxacademy.jwt.controllers;
 
 import com.greenfoxacademy.jwt.models.AuthenticationRequest;
 import com.greenfoxacademy.jwt.models.AuthenticationResponse;
+import com.greenfoxacademy.jwt.models.User;
 import com.greenfoxacademy.jwt.services.MyUserDetailsService;
 import com.greenfoxacademy.jwt.services.UserService;
 import com.greenfoxacademy.jwt.utils.JwtUtil;
@@ -11,10 +12,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class MainController {
@@ -39,6 +37,11 @@ public class MainController {
   @GetMapping({"/ciao", "/hello"})
   public String hello() {
     return "Hello, this is Agi's first app with Spring Security:)";
+  }
+
+  @RequestMapping(value = "/add-new-user", method = RequestMethod.POST)
+  public ResponseEntity<?> saveUser(@RequestBody User user) throws Exception {
+    return ResponseEntity.ok(userService.saveUser(user));
   }
 
   @PostMapping("/authenticate")
