@@ -3,6 +3,7 @@ package com.greenfoxacademy.jwt.controllers;
 import com.greenfoxacademy.jwt.models.AuthenticationRequest;
 import com.greenfoxacademy.jwt.models.AuthenticationResponse;
 import com.greenfoxacademy.jwt.services.MyUserDetailsService;
+import com.greenfoxacademy.jwt.services.UserService;
 import com.greenfoxacademy.jwt.utils.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -20,14 +21,18 @@ public class MainController {
 
   private AuthenticationManager authenticationManager;
   private MyUserDetailsService userDetailsService;
+  private UserService userService;
   private JwtUtil jwtUtil;
+
 
   @Autowired
   public MainController(AuthenticationManager authenticationManager,
                         MyUserDetailsService userDetailsService,
+                        UserService userService,
                         JwtUtil jwtUtil) {
     this.authenticationManager = authenticationManager;
     this.userDetailsService = userDetailsService;
+    this.userService = userService;
     this.jwtUtil = jwtUtil;
   }
 
