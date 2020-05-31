@@ -1,8 +1,8 @@
 package com.greenfoxacademy.jwt.controllers;
 
-import com.greenfoxacademy.jwt.models.AuthenticationRequest;
-import com.greenfoxacademy.jwt.models.AuthenticationResponse;
-import com.greenfoxacademy.jwt.models.User;
+import com.greenfoxacademy.jwt.models.*;
+import com.greenfoxacademy.jwt.services.ApiInterface;
+import com.greenfoxacademy.jwt.services.MovieService;
 import com.greenfoxacademy.jwt.services.MyUserDetailsService;
 import com.greenfoxacademy.jwt.services.UserService;
 import com.greenfoxacademy.jwt.utils.JwtUtil;
@@ -13,6 +13,12 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
+import retrofit2.Call;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+import java.io.IOException;
 
 @RestController
 public class MainController {
@@ -20,6 +26,7 @@ public class MainController {
   private AuthenticationManager authenticationManager;
   private MyUserDetailsService userDetailsService;
   private UserService userService;
+  private MovieService movieService;
   private JwtUtil jwtUtil;
 
 
@@ -27,10 +34,12 @@ public class MainController {
   public MainController(AuthenticationManager authenticationManager,
                         MyUserDetailsService userDetailsService,
                         UserService userService,
+                        MovieService movieService,
                         JwtUtil jwtUtil) {
     this.authenticationManager = authenticationManager;
     this.userDetailsService = userDetailsService;
     this.userService = userService;
+    this.movieService = movieService;
     this.jwtUtil = jwtUtil;
   }
 
@@ -58,5 +67,24 @@ public class MainController {
         userDetailsService.loadUserByUsername(authenticationRequest.getUserName());
     String jwt = jwtUtil.generateToken(userDetails);
     return ResponseEntity.ok(new AuthenticationResponse(jwt));
+  }
+
+  public static String BASE_URL = "https://api.themoviedb.org";
+  private String API_KEY = "dc6e4b64943549c9f83d055f94ecd8c5";
+  private String LANGUAGE = "en-US";
+  private int PAGE = 1;
+
+  @GetMapping("/latest-person")
+  public ResponseEntity getLatestMoviePerson() throws IOException {
+    Retrofit retrofit = new Retrofit.Builder()
+        .baseUrl(BASE_URL)
+        .addConverterFactory(GsonConverterFactory.create())
+        .build();
+    ApiInterface apiInterface = retrofit.create(ApiInterface.class);
+    Call<MoviePersonDTO> call = apiInterface.getPopularMovies(API_KEY, LANGUAGE, PAGE);
+    Response<MoviePersonDTO> response = call.execute();
+    MoviePerson moviePerson = new MoviePerson(response.body());
+    movieService.saveMoviePerson(moviePerson);
+    return ResponseEntity.ok(response.body());
   }
 }
