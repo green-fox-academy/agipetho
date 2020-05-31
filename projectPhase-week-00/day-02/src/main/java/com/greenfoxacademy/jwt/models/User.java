@@ -1,5 +1,6 @@
 package com.greenfoxacademy.jwt.models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -9,23 +10,25 @@ import javax.persistence.Table;
 public class User {
 
   @Id
-  private String username;
+  @Column(length = 50)
+  private String userName;
+  @Column(length = 200)
   private String password;
 
-  public User(String username, String password) {
-    this.username = username;
+  public User(String userName, String password) {
+    this.userName = userName;
     this.password = password;
   }
 
   public User() {
   }
 
-  public String getUsername() {
-    return username;
+  public String getUserName() {
+    return userName;
   }
 
-  public void setUsername(String username) {
-    this.username = username;
+  public void setUserName(String userName) {
+    this.userName = userName;
   }
 
   public String getPassword() {
