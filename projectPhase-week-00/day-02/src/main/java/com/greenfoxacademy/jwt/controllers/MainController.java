@@ -49,13 +49,13 @@ public class MainController {
     try {
       authenticationManager.authenticate(
           new UsernamePasswordAuthenticationToken(authenticationRequest
-              .getUsername(), authenticationRequest.getPassword())
+              .getUserName(), authenticationRequest.getPassword())
       );
     } catch (BadCredentialsException e) {
       throw new Exception("Incorrect username or password", e);
     }
     UserDetails userDetails =
-        userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
+        userDetailsService.loadUserByUsername(authenticationRequest.getUserName());
     String jwt = jwtUtil.generateToken(userDetails);
     return ResponseEntity.ok(new AuthenticationResponse(jwt));
   }
