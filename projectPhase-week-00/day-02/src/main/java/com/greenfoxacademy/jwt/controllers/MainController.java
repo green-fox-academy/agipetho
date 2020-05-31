@@ -69,19 +69,17 @@ public class MainController {
     return ResponseEntity.ok(new AuthenticationResponse(jwt));
   }
 
-  public static String BASE_URL = "https://api.themoviedb.org";
-  private String API_KEY = "dc6e4b64943549c9f83d055f94ecd8c5";
-  private String LANGUAGE = "en-US";
-  private int PAGE = 1;
-
   @GetMapping("/latest-person")
   public ResponseEntity getLatestMoviePerson() throws IOException {
     Retrofit retrofit = new Retrofit.Builder()
-        .baseUrl(BASE_URL)
+        .baseUrl(movieService.getBaseUrl())
         .addConverterFactory(GsonConverterFactory.create())
         .build();
     ApiInterface apiInterface = retrofit.create(ApiInterface.class);
-    Call<MoviePersonDTO> call = apiInterface.getPopularMovies(API_KEY, LANGUAGE, PAGE);
+    Call<MoviePersonDTO> call = apiInterface.getPopularMovies(
+        movieService.getAPI_KEY(),
+        movieService.getLANGUAGE(),
+        movieService.getPAGE());
     Response<MoviePersonDTO> response = call.execute();
     MoviePerson moviePerson = new MoviePerson(response.body());
     movieService.saveMoviePerson(moviePerson);
