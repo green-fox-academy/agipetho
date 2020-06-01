@@ -49,8 +49,12 @@ public class MainController {
   }
 
   @RequestMapping(value = "/add-new-user", method = RequestMethod.POST)
-  public ResponseEntity<?> saveUser(@RequestBody User user) throws Exception {//todo: exception handling
-    return ResponseEntity.ok(userService.saveUser(user));
+  public ResponseEntity<?> saveUser(@RequestBody User user) {
+    try {
+      return ResponseEntity.ok(userService.saveUser(user));
+    } catch (IllegalArgumentException e) {
+      return ResponseEntity.badRequest().body("Request failed, user not added");
+    }
   }
 
   @PostMapping("/authenticate")
@@ -61,7 +65,9 @@ public class MainController {
               .getUserName(), authenticationRequest.getPassword())
       );
     } catch (BadCredentialsException e) {
-      throw new Exception("Incorrect username or password", e);//todo: exception handling is OK?
+      throw new Exception("Incorrect username or password", e);//az egesz stacket visszaadjuk a hibauzenetben
+      //todo: question: which to use? (ref: Baeldung, https://www.baeldung.com/spring-mvc-controller-custom-http-status-code)
+      //return new ResponseEntity(HttpStatus.UNAUTHORIZED);
     }
     UserDetails userDetails =
         userDetailsService.loadUserByUsername(authenticationRequest.getUserName());
@@ -70,19 +76,23 @@ public class MainController {
   }
 
   @GetMapping("/latest-person")
-  public ResponseEntity getLatestMoviePerson() throws IOException {//todo: exception handling
-    Retrofit retrofit = new Retrofit.Builder()
-        .baseUrl(movieService.getBaseUrl())
-        .addConverterFactory(GsonConverterFactory.create())
-        .build();
-    ApiInterface apiInterface = retrofit.create(ApiInterface.class);
-    Call<MoviePersonDTO> call = apiInterface.getPopularMovies(
-        movieService.getAPI_KEY(),
-        movieService.getLANGUAGE(),
-        movieService.getPAGE());
-    Response<MoviePersonDTO> response = call.execute();
-    MoviePerson moviePerson = new MoviePerson(response.body());
-    movieService.saveMoviePerson(moviePerson);
-    return ResponseEntity.ok(response.body());
+  public ResponseEntity getLatestMoviePerson() {
+    try {
+      Retrofit retrofit = new Retrofit.Builder()
+          .baseUrl(movieService.getBaseUrl())
+          .addConverterFactory(GsonConverterFactory.create())
+          .build();
+      ApiInterface apiInterface = retrofit.create(ApiInterface.class);
+      Call<MoviePersonDTO> call = apiInterface.getPopularMovies(
+          movieService.getAPI_KEY(),
+          movieService.getLANGUAGE(),
+          movieService.getPAGE());
+      Response<MoviePersonDTO> response = call.execute();
+      MoviePerson moviePerson = new MoviePerson(response.body());
+      movieService.saveMoviePerson(moviePerson);
+      return ResponseEntity.ok(response.body());
+    } catch (IOException e) {
+      return ResponseEntity.notFound().build();
+    }
   }
 }
