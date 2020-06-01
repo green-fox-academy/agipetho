@@ -21,7 +21,7 @@ public class MyUserDetailsService implements UserDetailsService {
   }
 
   @Override
-  public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
+  public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {//todo: is exception handling OK?
     Optional<com.greenfoxacademy.jwt.models.User> myUser = userRepository.findByUserName(userName);
     if (myUser.isPresent()) {
       //username, password, list of authorities

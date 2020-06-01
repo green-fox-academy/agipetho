@@ -7,6 +7,4 @@ import org.springframework.stereotype.Service;
 @Service
 public interface UserService {
   User saveUser(User user);
-
-  boolean isUserDTOValid(User user);
 }

@@ -49,7 +49,7 @@ public class MainController {
   }
 
   @RequestMapping(value = "/add-new-user", method = RequestMethod.POST)
-  public ResponseEntity<?> saveUser(@RequestBody User user) throws Exception {
+  public ResponseEntity<?> saveUser(@RequestBody User user) throws Exception {//todo: exception handling
     return ResponseEntity.ok(userService.saveUser(user));
   }
 
@@ -61,7 +61,7 @@ public class MainController {
               .getUserName(), authenticationRequest.getPassword())
       );
     } catch (BadCredentialsException e) {
-      throw new Exception("Incorrect username or password", e);
+      throw new Exception("Incorrect username or password", e);//todo: exception handling is OK?
     }
     UserDetails userDetails =
         userDetailsService.loadUserByUsername(authenticationRequest.getUserName());
@@ -70,7 +70,7 @@ public class MainController {
   }
 
   @GetMapping("/latest-person")
-  public ResponseEntity getLatestMoviePerson() throws IOException {
+  public ResponseEntity getLatestMoviePerson() throws IOException {//todo: exception handling
     Retrofit retrofit = new Retrofit.Builder()
         .baseUrl(movieService.getBaseUrl())
         .addConverterFactory(GsonConverterFactory.create())

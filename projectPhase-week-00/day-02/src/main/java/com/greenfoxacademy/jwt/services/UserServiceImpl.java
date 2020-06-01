@@ -25,9 +25,4 @@ public class UserServiceImpl implements UserService {
       newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
       return userRepository.save(newUser);
   }
-
-  @Override
-  public boolean isUserDTOValid(User user) {
-    return false;
-  }
 }
