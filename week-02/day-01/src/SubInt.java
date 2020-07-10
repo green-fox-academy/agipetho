@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.List;
 
 //public class SubInt {
 //    public static void main(String[] args) {
@@ -13,8 +14,24 @@ import java.util.Arrays;
 //        //  should print: '[]'
 //    }
 //}
-//public class SubInt {
-//    public static void main(String[] args) {
-//
-//    }
-//}
+public class SubInt {
+  public static void main(String[] args) {
+    subInt(1, new int[]{1, 11, 34, 52, 61, 85, 101});
+    subInt(9, new int[]{1, 11, 34, 52, 61});
+  }
+
+  public static void subInt(int searchFor, int[] searchIn) {
+    int lengthOfArray = 0;
+    int[] result = new int[searchIn.length];
+    String searchedNumber = Integer.toString(searchFor);
+    for (int i = 0; i < searchIn.length; i++) {
+      String searchedInString = Integer.toString(searchIn[i]);
+      if (searchedInString.contains(searchedNumber)) {
+        result[lengthOfArray] = i;
+        lengthOfArray++;
+      }
+    }
+    int[] resultRevertedToArray = Arrays.copyOfRange(result, 0, lengthOfArray);
+    System.out.println(Arrays.toString(resultRevertedToArray));
+  }
+}
