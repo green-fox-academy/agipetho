@@ -12,5 +12,16 @@ public class DrawTriangle {
       }
       System.out.println();
     }
+
+    main2();
+  }
+
+  public static void main2() {
+    int triangleNo = 5;
+    String input = "";
+    for (int i = 1; i <= triangleNo; i++) {
+      input+="*";
+      System.out.println(input);
+    }
   }
 }

@@ -39,3 +39,24 @@ public class User {
     this.password = password;
   }
 }
+
+/*
+package com.greenfoxacademy.springwebapp.models.dao;
+
+
+public class Player {
+
+private int id;
+private String username;
+private String email;
+private int kingdom;
+private String avatar;
+private int points;
+
+  public Player() {
+  }
+
+
+}
+ */
+

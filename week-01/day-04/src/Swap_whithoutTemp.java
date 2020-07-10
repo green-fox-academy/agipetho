@@ -1,7 +1,7 @@
 public class Swap_whithoutTemp {
   public static void main(String[] args) {
-    int a = 123;
-    int b = 526;
+    int a = 148;
+    int b = 999;
     System.out.println("Before swapping, a = " + a);
     System.out.println("Before swapping, b = " + b);
 

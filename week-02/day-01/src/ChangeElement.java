@@ -10,7 +10,7 @@ public class ChangeElement {
     for (int i = 0; i < numbers.length; i++) {
       if (numbers[i] == 8) {
         numbers[i] = 4;
-        System.out.println(Arrays.toString(numbers));
+        System.out.println(numbers[3]);
       }
     }
   }
