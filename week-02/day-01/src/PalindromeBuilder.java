@@ -4,23 +4,23 @@ public class PalindromeBuilder {
 
   public static void main(String[] args) {
     String input = "greenfox";
-    System.out.println(palindromBuilder(input));
+   System.out.println(palindromBuilder(input));
     System.out.println(palindromBuilder2(input));
     System.out.println(palindromBuilder3(input));
   }
 
 
-    public static String palindromBuilder(String baseOfPalindrome) {
-      char array[] = baseOfPalindrome.toCharArray();
-      String palindrome = "";
-      int lengthOfPalindrome = baseOfPalindrome.length();
-      for (int i = 0; i < lengthOfPalindrome; i++) {
-        palindrome += array[i];
+    public static String palindromBuilder(String input) {
+      char [] array = input.toCharArray();
+      //String palindrome = "";
+     // int lengthOfPalindrome = baseOfPalindrome.length();
+//      for (int i = 0; i < lengthOfPalindrome; i++) {
+//        palindrome += array[i];
+//      }
+      for (int i = 0; i < array.length; i++) {
+        input += array[array.length - i - 1];
       }
-      for (int i = 0; i < lengthOfPalindrome; i++) {
-        palindrome += array[lengthOfPalindrome - i - 1];
-      }
-      return palindrome;
+      return input;
     }
 
 
