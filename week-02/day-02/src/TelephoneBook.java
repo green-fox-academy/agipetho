@@ -14,13 +14,13 @@ public class TelephoneBook {
     System.out.println("John K. Miller's phone number is: " + telephoneBook.get("John K. Miller"));
 
     for (HashMap.Entry<String, String> item : telephoneBook.entrySet()) {
-      if (item.getValue() == "307-687-2982") {
+      if (item.getValue().equals("307-687-2982")) {
         System.out.println(item.getKey());
       }
     }
 //another solution:
     for (String k : telephoneBook.keySet()) {
-      if (telephoneBook.get(k) == "307-687-2982") {
+      if (telephoneBook.get(k).equals("307-687-2982")) {
         System.out.println(k);
       }
     }
